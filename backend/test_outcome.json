@@ -1,0 +1,5 @@
+{
+  "grade": 40,
+  "feedback": "El c\u00f3digo cumple con la l\u00f3gica requerida pero tiene un error de sintaxis en la llamada a la funci\u00f3n print. La funci\u00f3n imprimir_frutas no devuelve ning\u00fan valor, por lo que no se puede imprimir su resultado directamente. El c\u00f3digo del estudiante es casi id\u00e9ntico al de referencia, pero el error de sintaxis hace que no se ejecute correctamente.",
+  "status": "FAIL"
+}

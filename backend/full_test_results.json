@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Iteraci\u00f3n sobre una lista",
+    "grade": 50,
+    "feedback": "El c\u00f3digo cumple con la consigna en su l\u00f3gica, pero tiene un error de sintaxis en la llamada a la funci\u00f3n print. La funci\u00f3n imprimir_frutas no devuelve ning\u00fan valor, por lo que no se puede imprimir su resultado directamente. El bucle for y el mensaje personalizado est\u00e1n correctamente implementados.",
+    "used_solution": true
+  },
+  {
+    "title": "Uso de continue en un bucle",
+    "grade": 60,
+    "feedback": "El c\u00f3digo cumple con la consigna en su l\u00f3gica principal, pero tiene un error de ejecuci\u00f3n debido a la llamada de prueba incorrecta. La funci\u00f3n imprime correctamente los n\u00fameros pares del 0 al 9 usando un bucle for y la sentencia continue, pero la llamada a print(imprimir_pares()) no es necesaria y causa un error de indentaci\u00f3n.",
+    "used_solution": true
+  },
+  {
+    "title": "Iteraci\u00f3n sobre una cadena",
+    "grade": 70,
+    "feedback": "El c\u00f3digo cumple con la consigna b\u00e1sica y funciona correctamente, pero falla en los casos de prueba debido a un error en la ejecuci\u00f3n. La l\u00f3gica es correcta y cumple con los requisitos.",
+    "used_solution": true
+  },
+  {
+    "title": "Bucles anidados para tabla de multiplicar",
+    "grade": 60,
+    "feedback": "El c\u00f3digo cumple con la consigna en t\u00e9rminos de l\u00f3gica y estructura, pero tiene un error de indentaci\u00f3n que impide su ejecuci\u00f3n. La funci\u00f3n tabla_multiplicar() est\u00e1 correctamente implementada y produce el resultado esperado cuando se corrige el error de indentaci\u00f3n.",
+    "used_solution": true
+  },
+  {
+    "title": "Uso de break en un bucle",
+    "grade": 60,
+    "feedback": "El c\u00f3digo cumple con la consigna y la l\u00f3gica es correcta, pero tiene un error de indentaci\u00f3n que impide su ejecuci\u00f3n. La funci\u00f3n encuentra correctamente el primer n\u00famero primo en el rango del 2 al 20.",
+    "used_solution": true
+  },
+  {
+    "title": "Iteraci\u00f3n sobre un diccionario",
+    "grade": 50,
+    "feedback": "El c\u00f3digo cumple con la consigna en t\u00e9rminos de l\u00f3gica y estructura, pero tiene un error de sintaxis en la llamada a la funci\u00f3n print(mostrar_diccionario(estudiante)). La funci\u00f3n mostrar_diccionario no devuelve ning\u00fan valor, por lo que no se puede imprimir su resultado.",
+    "used_solution": true
+  },
+  {
+    "title": "Uso de la cl\u00e1usula else en un bucle",
+    "grade": 70,
+    "feedback": "El c\u00f3digo cumple con la consigna b\u00e1sica y funciona correctamente para el caso de prueba proporcionado. Sin embargo, hay errores en los casos de prueba adicionales que indican que no maneja todos los escenarios correctamente.",
+    "used_solution": true
+  },
+  {
+    "title": "Bucles anidados para patrones",
+    "grade": 40,
+    "feedback": "El c\u00f3digo cumple con la consigna y produce el resultado esperado, pero tiene un error de indentaci\u00f3n que impide su ejecuci\u00f3n correcta. La l\u00f3gica del bucle anidado es correcta y cumple con los requisitos del ejercicio.",
+    "used_solution": true
+  },
+  {
+    "title": "Uso de enumerate en un bucle",
+    "grade": 50,
+    "feedback": "El c\u00f3digo cumple con la consigna en t\u00e9rminos de l\u00f3gica y uso de enumerate, pero tiene un error de sintaxis en la llamada a la funci\u00f3n print(mostrar_indices(frutas)). La funci\u00f3n mostrar_indices no devuelve ning\u00fan valor, por lo que no debe usarse dentro de un print.",
+    "used_solution": true
+  },
+  {
+    "title": "Comprensiones de lista",
+    "grade": 50,
+    "feedback": "El c\u00f3digo cumple con la consigna y produce el resultado esperado, pero falla al ejecutarse debido a un error de indentaci\u00f3n en el entorno de prueba. La l\u00f3gica y la implementaci\u00f3n son correctas.",
+    "used_solution": true
+  }
+]

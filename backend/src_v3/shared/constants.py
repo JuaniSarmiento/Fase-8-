@@ -1,0 +1,41 @@
+"""
+Application constants
+"""
+
+# Risk thresholds
+RISK_LOW_THRESHOLD = 40
+RISK_MEDIUM_THRESHOLD = 60
+RISK_HIGH_THRESHOLD = 100
+
+# Time thresholds
+MIN_EXPECTED_TIME_MINUTES = 60
+MAX_SESSION_DURATION_HOURS = 8
+
+# Exercise attempt thresholds
+MIN_ATTEMPTS = 1
+MAX_EXPECTED_ATTEMPTS = 5
+
+# Completion thresholds
+COMPLETION_FULL = 1.0
+COMPLETION_PARTIAL = 0.5
+COMPLETION_NONE = 0.0
+
+# AI dependency thresholds
+AI_DEPENDENCY_LOW = 0.3
+AI_DEPENDENCY_MEDIUM = 0.6
+AI_DEPENDENCY_HIGH = 0.8
+
+# Risk calculation weights
+RISK_WEIGHT_AI_DEPENDENCY = 0.4
+RISK_WEIGHT_ATTEMPTS = 0.3
+RISK_WEIGHT_COMPLETION = 0.2
+RISK_WEIGHT_TIME = 0.1
+
+# Pagination
+DEFAULT_PAGE_SIZE = 20
+MAX_PAGE_SIZE = 100
+
+# Cache TTL (seconds)
+CACHE_TTL_SHORT = 60  # 1 minute
+CACHE_TTL_MEDIUM = 300  # 5 minutes
+CACHE_TTL_LONG = 3600  # 1 hour

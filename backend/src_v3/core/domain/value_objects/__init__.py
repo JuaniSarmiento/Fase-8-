@@ -1,0 +1,3 @@
+"""
+Value Objects package
+"""

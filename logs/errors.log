@@ -1,0 +1,977 @@
+2026-02-01 23:11:15 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - list_student_courses:2379 - Failed to list student courses: Could not determine join condition between parent/child tables on relationship EnrollmentModel.user_profile - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-02-01 23:13:01 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - list_student_courses:2379 - Failed to list student courses: Could not determine join condition between parent/child tables on relationship UserGamificationModel.user_profile - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-02-01 23:14:01 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - list_student_courses:2379 - Failed to list student courses: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedObjectError'>: type "enrollmentstatus" does not exist
+[SQL: SELECT enrollments.enrollment_id, enrollments.user_id, enrollments.course_id, enrollments.role, enrollments.status, enrollments.enrolled_at, enrollments.completed_at, enrollments.dropped_at, enrollments.metadata_json, enrollments.created_at, enrollments.updated_at 
+FROM enrollments 
+WHERE enrollments.user_id = $1::VARCHAR AND enrollments.status = $2::enrollmentstatus]
+[parameters: ('student-001', 'ACTIVE')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-01 23:14:56 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - list_student_courses:2379 - Failed to list student courses: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column courses.deleted_at does not exist
+[SQL: SELECT courses.course_id, courses.subject_id, courses.year, courses.semester, courses.created_at, courses.deleted_at 
+FROM courses 
+WHERE courses.course_id = $1::VARCHAR]
+[parameters: ('course-001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-01 23:16:03 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - list_student_courses:2380 - Failed to list student courses: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column courses.deleted_at does not exist
+[SQL: SELECT courses.course_id, courses.subject_id, courses.year, courses.semester, courses.created_at, courses.deleted_at 
+FROM courses 
+WHERE courses.course_id = $1::VARCHAR]
+[parameters: ('course-001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-01 23:17:38 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - list_student_courses:2383 - Failed to list student courses: type object 'CourseModel' has no attribute 'subject_code'
+2026-02-01 23:44:04 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_teacher_courses:97 - Failed to get teacher courses: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column c.course_name does not exist
+[SQL: 
+            SELECT DISTINCT
+                c.course_id,
+                c.course_name,
+                c.semester
+            FROM courses c
+            JOIN enrollments e ON c.course_id = e.course_id
+            WHERE e.user_id = $1
+              AND e.role = 'TEACHER'
+              AND e.status = 'ACTIVE'
+            ORDER BY c.semester DESC, c.course_name ASC
+        ]
+[parameters: ('teacher-001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-01 23:59:12 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_teacher_modules:161 - Failed to get teacher modules: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column m.name does not exist
+[SQL: 
+            SELECT 
+                m.module_id,
+                m.name,
+                m.description,
+                m.course_id,
+                c.subject_code,
+                c.year,
+                c.semester,
+                m.created_at,
+                COUNT(DISTINCT e_students.enrollment_id) as student_count
+            FROM modules m
+            JOIN courses c ON m.course_id = c.course_id
+            JOIN enrollments e_teacher ON c.course_id = e_teacher.course_id
+            LEFT JOIN enrollments e_students ON m.module_id = e_students.module_id 
+                AND e_students.role = 'STUDENT' 
+                AND e_students.status = 'ACTIVE'
+            WHERE e_teacher.user_id = $1
+              AND e_teacher.role = 'TEACHER'
+              AND e_teacher.status = 'ACTIVE'
+            GROUP BY m.module_id, m.name, m.description, m.course_id, 
+                     c.subject_code, c.year, c.semester, m.created_at
+            ORDER BY m.created_at DESC
+        ]
+[parameters: ('teacher-001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-01 23:59:12 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_available_students:249 - Failed to get students: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "user_roles" does not exist
+[SQL: 
+            SELECT 
+                u.user_id,
+                u.username,
+                u.email,
+                u.full_name
+            FROM users u
+            JOIN user_roles ur ON u.user_id = ur.user_id
+            JOIN roles r ON ur.role_id = r.role_id
+            WHERE r.name = 'STUDENT'
+            ORDER BY u.full_name ASC, u.username ASC
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-02 00:18:14 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:229 - Failed to create module: 'subject_code' is an invalid keyword argument for CourseModel
+2026-02-02 00:19:54 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:248 - Failed to create module: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column "id" of relation "subjects" does not exist
+[SQL: 
+            INSERT INTO subjects (id, name, code, created_at, updated_at)
+            VALUES ($1, $2, $3, NOW(), NOW())
+            ON CONFLICT (code) DO UPDATE SET updated_at = NOW()
+            RETURNING id
+        ]
+[parameters: ('d4c97076-d1bd-40e4-834a-342a29af078a', 'Test', 'MOD_4EB87BBE')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-02 00:21:20 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:248 - Failed to create module: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $4: 1 (expected str, got int)
+[SQL: 
+            INSERT INTO courses (course_id, subject_id, year, semester, is_active)
+            VALUES ($1, $2, $3, $4, true)
+        ]
+[parameters: ('3563c5c3-03ed-4ec0-837c-a12848084c3f', 'efe389c0-006b-407b-8331-e78f704149c6', 2026, 1)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 00:22:06 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:246 - Failed to create module: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "subject_code" of relation "courses" violates not-null constraint
+DETAIL:  Failing row contains (a3bb26a2-1028-4149-a18b-c110384db423, null, 2026, 1, t, 2026-02-02 00:22:06.844886+00, ca1dfbfe-85c5-459a-972d-1b59fa6c93d8).
+[SQL: 
+            INSERT INTO courses (course_id, subject_id, year, semester, is_active)
+            VALUES ($1, $2, 2026, 1, true)
+        ]
+[parameters: ('a3bb26a2-1028-4149-a18b-c110384db423', 'ca1dfbfe-85c5-459a-972d-1b59fa6c93d8')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-02-02 00:23:07 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:248 - Failed to create module: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "courses" violates foreign key constraint "courses_subject_code_fkey"
+DETAIL:  Key (subject_code)=(MOD_BE5A2A61) is not present in table "subjects_legacy".
+[SQL: 
+            INSERT INTO courses (course_id, subject_code, subject_id, year, semester, is_active)
+            VALUES ($1, $2, $3, 2026, '1C', true)
+        ]
+[parameters: ('d4c07691-b92d-4d45-8ffa-70819ac488d8', 'MOD_BE5A2A61', '48028e4b-5b9f-4df2-b9af-ac9e311ccfa0')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-02-02 00:26:24 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:262 - Failed to create module: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column "id" of relation "subjects_legacy" does not exist
+[SQL: 
+            INSERT INTO subjects_legacy (id, code, name, created_at)
+            VALUES ($1, $2, $3, NOW())
+            ON CONFLICT (code) DO NOTHING
+        ]
+[parameters: ('285f7edc-918c-4537-8b84-9dd30d40c05d', 'MOD_51CA8988', 'Comision Martes 10-12')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-02 02:41:34 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_enrollment:2386 - Failed to create enrollment: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedObjectError'>: type "enrollmentrole" does not exist
+[SQL: INSERT INTO enrollments (enrollment_id, user_id, course_id, module_id, role, status, completed_at, dropped_at, metadata_json) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::enrollmentrole, $6::enrollment_status_new, $7::TIMESTAMP WITH TIME ZONE, $8::TIMESTAMP WITH TIME ZONE, $9::JSONB) RETURNING enrollments.enrolled_at, enrollments.created_at, enrollments.updated_at]
+[parameters: ('c2ef80d0-50ee-48ac-81be-cdda8a05007f', 'student-001', '2509308a-be40-4e24-9cec-b7be47aab375', '34168338-bc48-4bde-ac67-2c034e7aa29a', 'STUDENT', 'ACTIVE', None, None, '{}')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-02 02:41:34 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_enrollment:2386 - Failed to create enrollment: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedObjectError'>: type "enrollmentrole" does not exist
+[SQL: INSERT INTO enrollments (enrollment_id, user_id, course_id, module_id, role, status, completed_at, dropped_at, metadata_json) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::enrollmentrole, $6::enrollment_status_new, $7::TIMESTAMP WITH TIME ZONE, $8::TIMESTAMP WITH TIME ZONE, $9::JSONB) RETURNING enrollments.enrolled_at, enrollments.created_at, enrollments.updated_at]
+[parameters: ('73b4c194-018b-43d2-b3ef-3d2193ea5fa9', 'alumno-001', '2509308a-be40-4e24-9cec-b7be47aab375', '34168338-bc48-4bde-ac67-2c034e7aa29a', 'STUDENT', 'ACTIVE', None, None, '{}')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-02 02:42:44 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('undefined',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 02:42:44 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('undefined',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 02:42:45 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2584 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('undefined',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 02:42:45 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2584 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('undefined',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 02:42:45 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('undefined',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 02:42:45 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('undefined',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 02:43:18 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_enrollment:2386 - Failed to create enrollment: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedObjectError'>: type "enrollmentrole" does not exist
+[SQL: INSERT INTO enrollments (enrollment_id, user_id, course_id, module_id, role, status, completed_at, dropped_at, metadata_json) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::enrollmentrole, $6::enrollment_status_new, $7::TIMESTAMP WITH TIME ZONE, $8::TIMESTAMP WITH TIME ZONE, $9::JSONB) RETURNING enrollments.enrolled_at, enrollments.created_at, enrollments.updated_at]
+[parameters: ('7614021b-e641-45df-a382-ecc818ad7f18', 'alumno-001', 'a5ec42e5-e748-44cd-9b4b-c4b9a4ecf894', '309fd23a-eebf-496c-b939-fb482aa83100', 'STUDENT', 'ACTIVE', None, None, '{}')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-02-02 02:47:30 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - create_module:261 - Failed to create module: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "enrollments" violates foreign key constraint "enrollments_user_id_fkey"
+DETAIL:  Key (user_id)=(undefined) is not present in table "users".
+[SQL: 
+            INSERT INTO enrollments (enrollment_id, user_id, course_id, role, status)
+            VALUES ($1, $2, $3, 'TEACHER', 'ACTIVE')
+        ]
+[parameters: ('7346e44b-2111-4652-b096-4dc3146517c2', 'undefined', 'f9a03eab-cc52-435a-897e-a729afa8d668')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-02-02 13:30:44 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:30:44 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:30:53 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:30:53 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:30:57 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:30:57 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:32:36 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_activities:2536 - Failed to get module activities: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                a.activity_id,
+                a.title,
+                a.instructions,
+                a.difficulty,
+                a.estimated_duration_minutes,
+                a.order_index,
+                a.status,
+                a.created_at,
+                COUNT(DISTINCT s.submission_id) as total_submissions,
+                COUNT(DISTINCT CASE WHEN s.status = 'GRADED' THEN s.submission_id END) as graded_submissions
+            FROM activities a
+            LEFT JOIN submissions s ON a.activity_id = s.activity_id
+            WHERE a.module_id = $1
+            GROUP BY a.activity_id
+            ORDER BY a.order_index ASC, a.created_at DESC
+        ]
+[parameters: ('309fd23a-eebf-496c-b939-fb482aa83100',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:38:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:36 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:37 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:39 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:41 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:43 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:51 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:56 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:38:59 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:07 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:10 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:12 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:14 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:16 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:18 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:20 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:30 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:33 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:37 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:39 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:41 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:43 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:47 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:50 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:52 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:54 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:56 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:39:58 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:02 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:06 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:08 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:11 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:15 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:19 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:21 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:23 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:40:23 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:44:10 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2589 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:44:10 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2589 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 13:50:23 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:23 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:27 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:31 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:38 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:38 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:42 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:44 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:46 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:48 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:50 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:52 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:54 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:57 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:50:59 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:01 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:03 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:05 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:07 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:09 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:11 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:15 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:19 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:30 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:32 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:34 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:37 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:39 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:41 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:43 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:47 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:49 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:49 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:51:49 - backend.src_v3.infrastructure.ai.teacher_generator_graph - ERROR - approve_and_publish:885 - CRITICAL AI FAILURE - Approve and publish: Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/teacher_generator_graph.py", line 857, in approve_and_publish
+    from backend.src_v3.infrastructure.ai.db_persistence import publish_exercises_to_db
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 34, in <module>
+    module_id: Optional[str] = None
+               ^^^^^^^^
+NameError: name 'Optional' is not defined
+
+2026-02-02 13:56:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:08 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:14 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:25 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:27 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:29 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:31 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:33 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:37 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:39 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:42 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:44 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:46 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:48 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:50 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:52 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:54 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:56 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:56:59 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:01 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:03 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:05 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:07 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:09 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:11 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:15 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:20 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:30 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:32 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:34 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:36 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:39 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:41 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:43 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:47 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:49 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:51 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:53 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:55 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:55 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 13:57:55 - backend.src_v3.infrastructure.ai.db_persistence - ERROR - publish_exercises_to_db:139 - Failed to persist exercises to database: 'module_id' is an invalid keyword argument for ActivityModel
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 59, in publish_exercises_to_db
+    activity = ActivityModel(
+               ^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'module_id' is an invalid keyword argument for ActivityModel
+2026-02-02 13:57:55 - backend.src_v3.infrastructure.ai.teacher_generator_graph - ERROR - approve_and_publish:885 - CRITICAL AI FAILURE - Approve and publish: Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 59, in publish_exercises_to_db
+    activity = ActivityModel(
+               ^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'module_id' is an invalid keyword argument for ActivityModel
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/teacher_generator_graph.py", line 862, in approve_and_publish
+    persistence_result = await publish_exercises_to_db(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 141, in publish_exercises_to_db
+    raise RuntimeError(f"Database persistence failed: {str(e)}")
+RuntimeError: Database persistence failed: 'module_id' is an invalid keyword argument for ActivityModel
+
+2026-02-02 14:00:34 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:37 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:40 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:43 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:47 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:47 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:50 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:52 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:55 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:57 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:00:59 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:01 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:03 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:05 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:07 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:09 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:11 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:16 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:18 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:20 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:01:28 - backend.src_v3.infrastructure.ai.db_persistence - ERROR - publish_exercises_to_db:139 - Failed to persist exercises to database: 'description' is an invalid keyword argument for ActivityModel
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 59, in publish_exercises_to_db
+    activity = ActivityModel(
+               ^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'description' is an invalid keyword argument for ActivityModel
+2026-02-02 14:01:28 - backend.src_v3.infrastructure.ai.teacher_generator_graph - ERROR - approve_and_publish:885 - CRITICAL AI FAILURE - Approve and publish: Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 59, in publish_exercises_to_db
+    activity = ActivityModel(
+               ^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'description' is an invalid keyword argument for ActivityModel
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/teacher_generator_graph.py", line 862, in approve_and_publish
+    persistence_result = await publish_exercises_to_db(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 141, in publish_exercises_to_db
+    raise RuntimeError(f"Database persistence failed: {str(e)}")
+RuntimeError: Database persistence failed: 'description' is an invalid keyword argument for ActivityModel
+
+2026-02-02 14:03:53 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:03:54 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:03:57 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:08 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:08 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:11 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:15 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:19 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:21 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:30 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:32 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:34 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:36 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:38 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:40 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:42 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:44 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:04:45 - backend.src_v3.infrastructure.ai.db_persistence - ERROR - publish_exercises_to_db:139 - Failed to persist exercises to database: 'description' is an invalid keyword argument for ActivityModel
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 59, in publish_exercises_to_db
+    activity = ActivityModel(
+               ^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'description' is an invalid keyword argument for ActivityModel
+2026-02-02 14:04:45 - backend.src_v3.infrastructure.ai.teacher_generator_graph - ERROR - approve_and_publish:885 - CRITICAL AI FAILURE - Approve and publish: Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 59, in publish_exercises_to_db
+    activity = ActivityModel(
+               ^^^^^^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2175, in _declarative_constructor
+    raise TypeError(
+TypeError: 'description' is an invalid keyword argument for ActivityModel
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/ai/teacher_generator_graph.py", line 862, in approve_and_publish
+    persistence_result = await publish_exercises_to_db(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/backend/src_v3/infrastructure/ai/db_persistence.py", line 141, in publish_exercises_to_db
+    raise RuntimeError(f"Database persistence failed: {str(e)}")
+RuntimeError: Database persistence failed: 'description' is an invalid keyword argument for ActivityModel
+
+2026-02-02 14:13:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:01 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:06 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:10 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:12 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:20 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:30 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:32 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:37 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:39 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:41 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:43 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:47 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:49 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:51 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:53 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:56 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:13:58 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:02 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:04 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:06 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:08 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:10 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:12 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:14 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:17 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:19 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:21 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:23 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:25 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:27 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:29 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:14:29 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 14:15:08 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2592 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 14:15:08 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2592 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 15:19:58 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 15:21:25 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2592 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 15:21:25 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - ERROR - get_module_stats:2592 - Failed to get module stats: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.InvalidTextRepresentationError'>: invalid input value for enum submissionstatus: "GRADED"
+[SQL: 
+            SELECT 
+                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
+                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
+                (SELECT COUNT(DISTINCT s.student_id) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as students_with_submissions,
+                (SELECT COUNT(*) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1) as total_submissions,
+                (SELECT AVG(s.final_grade) 
+                 FROM submissions s 
+                 JOIN activities a ON s.activity_id = a.activity_id 
+                 WHERE a.module_id = $1 AND s.status = 'GRADED') as average_grade
+        ]
+[parameters: ('701c7617-75ea-4caa-89f9-a541f213e03a',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-02-02 16:21:53 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - ERROR - get_activity_submissions_analytics:527 - Unexpected error in get_activity_submissions_analytics: 1 validation error for ExerciseGrade
+grade
+  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=79.57427304782925, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_from_float
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/http/api/v3/routers/analytics_router.py", line 493, in get_activity_submissions_analytics
+    simulated_exercises.append(ExerciseGrade(
+                               ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ExerciseGrade
+grade
+  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=79.57427304782925, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_from_float
+2026-02-02 16:23:29 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - ERROR - get_student_traceability:1015 - Unexpected error in get_student_traceability: 5 validation errors for TraceabilityResponse
+cognitive_journey
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+interactions
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+total_hints
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+total_time_minutes
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+risk_level
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+Traceback (most recent call last):
+  File "/app/backend/src_v3/infrastructure/http/api/v3/routers/analytics_router.py", line 778, in get_student_traceability
+    return TraceabilityResponse(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for TraceabilityResponse
+cognitive_journey
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+interactions
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+total_hints
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+total_time_minutes
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+risk_level
+  Field required [type=missing, input_value={'student_id': 'b6a2f5dc-...iones con el tutor IA.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2026-02-02 19:30:44 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:30:45 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:30:49 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:30:53 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:30:56 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:00 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:03 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:05 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:07 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:09 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:11 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:13 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:16 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:18 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:20 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:22 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:24 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:26 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:28 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:30 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:33 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:31:35 - chromadb.telemetry.product.posthog - ERROR - _direct_capture:61 - Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-02-02 19:32:02 - backend.src_v3.infrastructure.http.api.v3.routers.student_router - ERROR - get_student_gamification:2473 - Failed to get gamification: 'current_streak' is an invalid keyword argument for UserGamificationModel

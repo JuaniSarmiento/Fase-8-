@@ -1,0 +1,169 @@
+{
+  "timestamp": "2026-01-31T19:10:48.182873",
+  "student_id": "test-e2e-student-20260131191015",
+  "activity": {
+    "id": "e9a88886-96ea-4068-9c0f-97dd9232cad9",
+    "title": "Bucles"
+  },
+  "exercises": [
+    {
+      "exercise_id": "a415f508-df9e-4c25-a615-cbbb82e00e9e",
+      "title": "Iteración sobre una lista",
+      "grade": 40,
+      "feedback": "El código cumple con la lógica requerida pero tiene un error de sintaxis en la llamada a la función. La función no devuelve ningún valor, por lo que imprimir su resultado causa un error.",
+      "success": true
+    },
+    {
+      "exercise_id": "c606182f-510a-4c20-a187-bac90e04eed3",
+      "title": "Uso de continue en un bucle",
+      "grade": 60,
+      "feedback": "El código cumple con la consigna y la lógica es correcta, pero hay un error de indentación en la llamada de prueba que hace que el código falle al ejecutarse. La función en sí misma está bien implementada y cumple con los requisitos.",
+      "success": true
+    },
+    {
+      "exercise_id": "6c947f7b-dfdd-4617-b561-f1b12653eed5",
+      "title": "Iteración sobre una cadena",
+      "grade": 50,
+      "feedback": "El código cumple con la estructura básica del ejercicio, pero no pasa los test debido a un error en la lógica. El código cuenta correctamente las vocales, pero hay un problema en la ejecución que causa que falle los test.",
+      "success": true
+    },
+    {
+      "exercise_id": "92f90e89-52c6-49eb-b51b-1594d3a2bdd3",
+      "title": "Bucles anidados para tabla de multiplicar",
+      "grade": 60,
+      "feedback": "El código cumple con la consigna en términos de lógica y estructura, pero tiene un error de indentación que impide su ejecución correcta. La función tabla_multiplicar() está bien implementada y cumple con los requisitos de la consigna.",
+      "success": true
+    },
+    {
+      "exercise_id": "aace87ed-8d44-4fb5-9b0a-7475570a865d",
+      "title": "Uso de break en un bucle",
+      "grade": 60,
+      "feedback": "El código cumple con la consigna y la lógica es correcta, pero tiene un error de indentación que impide su ejecución. La función encuentra correctamente el primer número primo en el rango del 2 al 20.",
+      "success": true
+    },
+    {
+      "exercise_id": "480015fc-020b-4a39-9292-b26e883ebe2d",
+      "title": "Iteración sobre un diccionario",
+      "grade": 60,
+      "feedback": "El código cumple con la consigna en términos de lógica y estructura, pero tiene un error de sintaxis en la llamada a la función print(mostrar_diccionario(estudiante)). La función mostrar_diccionario no devuelve ningún valor, por lo que no debe ser pasada a print.",
+      "success": true
+    },
+    {
+      "exercise_id": "ac266fde-6d33-4377-bc53-1a16d2c9f906",
+      "title": "Uso de la cláusula else en un bucle",
+      "grade": 70,
+      "feedback": "El código cumple con la consigna básica y funciona correctamente para el caso de prueba proporcionado. Sin embargo, hay un error en la ejecución que indica que falló en algunos casos de prueba. La lógica es correcta y cumple con los requisitos de usar un bucle for y la cláusula else.",
+      "success": true
+    },
+    {
+      "exercise_id": "7f631f6b-2adc-4553-81a4-ca0572477163",
+      "title": "Bucles anidados para patrones",
+      "grade": 40,
+      "feedback": "El código del estudiante es casi idéntico al código de referencia y cumple con la consigna. Sin embargo, el error de indentación en la ejecución afecta negativamente la nota. El código no produce la salida esperada debido a este error.",
+      "success": true
+    },
+    {
+      "exercise_id": "1c509a38-e76f-4afc-a594-c3d87c464c5c",
+      "title": "Uso de enumerate en un bucle",
+      "grade": 50,
+      "feedback": "El código cumple con la consigna en términos de lógica y estructura, pero tiene un error de sintaxis en la llamada a la función print(mostrar_indices(frutas)). La función mostrar_indices no devuelve ningún valor, por lo que no debe ser pasada a print.",
+      "success": true
+    },
+    {
+      "exercise_id": "19f75101-001c-45f0-aef4-da5fa1361763",
+      "title": "Comprensiones de lista",
+      "grade": 70,
+      "feedback": "El código cumple con la consigna y produce el resultado esperado, pero tiene un error de indentación en la parte de la llamada de prueba que hace que falle al ejecutarse. La lógica de la comprensión de lista es correcta y cumple con los requisitos.",
+      "success": true
+    }
+  ],
+  "summary": {
+    "total_exercises": 10,
+    "successful_submissions": 10,
+    "average_grade": 56.0
+  },
+  "teacher_analytics": {
+    "student_id": "test-e2e-student-20260131191015",
+    "student_name": "Estudiante test-e2e",
+    "email": "test-e2e-student-20260131191015@test.com",
+    "status": "Active",
+    "grade": 56.0,
+    "grade_justification": "Estudiante completó 10 ejercicios con un promedio de 56.0/100. Aprobó 6 de 10 ejercicios. Rendimiento regular. Se recomienda reforzar conceptos básicos con ejercicios adicionales y tutorías.",
+    "submitted_at": "2026-01-31T22:10:15.035444Z",
+    "ai_feedback": "Estudiante completó 10 ejercicios con un promedio de 56.0/100. Aprobó 6 de 10 ejercicios. Rendimiento regular. Se recomienda reforzar conceptos básicos con ejercicios adicionales y tutorías.",
+    "risk_alert": true,
+    "risk_analysis": {
+      "level": "medium",
+      "ai_dependency_ratio": null,
+      "description": "No se pudo interpretar correctamente la salida del LLM. Usar juicio docente para revisar la sesión.",
+      "recommendations": {
+        "grade_justification": "No se pudo interpretar correctamente la salida del LLM. Usar juicio docente para revisar la sesión.",
+        "evidence": [
+          "```json\n{\n  \"risk_level\": \"INFO\",\n  \"dimension\": \"Bienestar Cognitivo\",\n  \"evidence\": [\n    \"Solicitud de ayuda inicial sin indicios de dependencia o fraude\"\n  ],\n  \"recommendation\": \"Continuar con la"
+        ]
+      }
+    },
+    "exercises": [
+      {
+        "exercise_id": "a415f508-df9e-4c25-a615-cbbb82e00e9e",
+        "title": "Iteración sobre una lista",
+        "grade": 40,
+        "feedback": "El código cumple con la lógica requerida pero tiene un error de sintaxis en la llamada a la función. La función no devuelve ningún valor, por lo que imprimir su resultado causa un error."
+      },
+      {
+        "exercise_id": "c606182f-510a-4c20-a187-bac90e04eed3",
+        "title": "Uso de continue en un bucle",
+        "grade": 60,
+        "feedback": "El código cumple con la consigna y la lógica es correcta, pero hay un error de indentación en la llamada de prueba que hace que el código falle al ejecutarse. La función en sí misma está bien implementada y cumple con los requisitos."
+      },
+      {
+        "exercise_id": "6c947f7b-dfdd-4617-b561-f1b12653eed5",
+        "title": "Iteración sobre una cadena",
+        "grade": 50,
+        "feedback": "El código cumple con la estructura básica del ejercicio, pero no pasa los test debido a un error en la lógica. El código cuenta correctamente las vocales, pero hay un problema en la ejecución que causa que falle los test."
+      },
+      {
+        "exercise_id": "92f90e89-52c6-49eb-b51b-1594d3a2bdd3",
+        "title": "Bucles anidados para tabla de multiplicar",
+        "grade": 60,
+        "feedback": "El código cumple con la consigna en términos de lógica y estructura, pero tiene un error de indentación que impide su ejecución correcta. La función tabla_multiplicar() está bien implementada y cumple con los requisitos de la consigna."
+      },
+      {
+        "exercise_id": "aace87ed-8d44-4fb5-9b0a-7475570a865d",
+        "title": "Uso de break en un bucle",
+        "grade": 60,
+        "feedback": "El código cumple con la consigna y la lógica es correcta, pero tiene un error de indentación que impide su ejecución. La función encuentra correctamente el primer número primo en el rango del 2 al 20."
+      },
+      {
+        "exercise_id": "480015fc-020b-4a39-9292-b26e883ebe2d",
+        "title": "Iteración sobre un diccionario",
+        "grade": 60,
+        "feedback": "El código cumple con la consigna en términos de lógica y estructura, pero tiene un error de sintaxis en la llamada a la función print(mostrar_diccionario(estudiante)). La función mostrar_diccionario no devuelve ningún valor, por lo que no debe ser pasada a print."
+      },
+      {
+        "exercise_id": "ac266fde-6d33-4377-bc53-1a16d2c9f906",
+        "title": "Uso de la cláusula else en un bucle",
+        "grade": 70,
+        "feedback": "El código cumple con la consigna básica y funciona correctamente para el caso de prueba proporcionado. Sin embargo, hay un error en la ejecución que indica que falló en algunos casos de prueba. La lógica es correcta y cumple con los requisitos de usar un bucle for y la cláusula else."
+      },
+      {
+        "exercise_id": "7f631f6b-2adc-4553-81a4-ca0572477163",
+        "title": "Bucles anidados para patrones",
+        "grade": 40,
+        "feedback": "El código del estudiante es casi idéntico al código de referencia y cumple con la consigna. Sin embargo, el error de indentación en la ejecución afecta negativamente la nota. El código no produce la salida esperada debido a este error."
+      },
+      {
+        "exercise_id": "1c509a38-e76f-4afc-a594-c3d87c464c5c",
+        "title": "Uso de enumerate en un bucle",
+        "grade": 50,
+        "feedback": "El código cumple con la consigna en términos de lógica y estructura, pero tiene un error de sintaxis en la llamada a la función print(mostrar_indices(frutas)). La función mostrar_indices no devuelve ningún valor, por lo que no debe ser pasada a print."
+      },
+      {
+        "exercise_id": "19f75101-001c-45f0-aef4-da5fa1361763",
+        "title": "Comprensiones de lista",
+        "grade": 70,
+        "feedback": "El código cumple con la consigna y produce el resultado esperado, pero tiene un error de indentación en la parte de la llamada de prueba que hace que falle al ejecutarse. La lógica de la comprensión de lista es correcta y cumple con los requisitos."
+      }
+    ]
+  }
+}
