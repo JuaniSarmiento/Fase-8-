@@ -1,0 +1,31 @@
+# Logs y runtime
+logs/
+*.log
+backend.log
+daily.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Uploads generados
+uploads/
+generator_pdfs/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Embedded git repos (por si acaso)
+frontend/.git/
