@@ -1,31 +1,69 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
 # Logs y runtime
 logs/
 *.log
 backend.log
 daily.log
+backend_logs.txt
+logs_*.txt
 
 # Python cache
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 *.egg-info/
 .pytest_cache/
 .coverage
 htmlcov/
+dist/
+build/
 
-# Uploads generados
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Uploads y data generados
 uploads/
 generator_pdfs/
+chroma_data/
+
+# Database backups
+*.db
+*.sqlite
+*.backup
+backups/
 
 # IDE/Editor
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-*
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Embedded git repos (por si acaso)
+# Node (Frontend)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo/
+frontend/.env*.local
+
+# Embedded git repos
 frontend/.git/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
