@@ -3,7 +3,7 @@ Student HTTP Router - API v3
 
 Endpoints for student learning interactions.
 """
-from fastapi import APIRouter, Depends, HTTPException, status, WebSocket, WebSocketDisconnect
+from fastapi import APIRouter, Depends, HTTPException, status, WebSocket, WebSocketDisconnect, Request
 from pydantic import BaseModel, Field, computed_field
 from typing import Optional, List
 from datetime import datetime
@@ -11,6 +11,9 @@ import logging
 import json
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
+
+# Redis cache decorator
+from backend.src_v3.infrastructure.cache.decorators import cached
 
 from backend.src_v3.application.student.use_cases import (
     StartLearningSessionUseCase,
@@ -194,7 +197,9 @@ async def get_teacher_repo(db=Depends(get_db_session)):
 # ==================== ENDPOINTS ====================
 
 @router.get("/activities", response_model=List[ActivityInfo])
+@cached(ttl=45, key_prefix="student_activities")  # Cache for 45 seconds
 async def list_available_activities(
+    request: Request,
     student_id: Optional[str] = None,
     repo = Depends(get_teacher_repo)
 ):
@@ -444,9 +449,39 @@ async def submit_code(
     Executes code in sandbox and provides AI feedback.
     If is_final_submission=True, evaluates ALL exercises in the activity.
     """
+    from sqlalchemy import text
+    
     logger.info(f"--- SUBMIT CODE CMD --- Session: {session_id}, Final: {request.is_final_submission}")
     
     try:
+        # 0. Si es final submission, verificar que no haya sido ya completada
+        if request.is_final_submission:
+            # Primero obtener user_id y activity_id de la sesión
+            session_check = await db.execute(text("""
+                SELECT user_id, activity_id FROM sessions_v2 WHERE session_id = :sid
+            """), {"sid": session_id})
+            session_data = session_check.fetchone()
+            
+            if session_data:
+                user_id, activity_id = session_data
+                # Verificar si ya existe una submission final previa en la tabla submissions
+                # Estados válidos: submitted, graded, reviewed (no 'completed')
+                attempt_check = await db.execute(text("""
+                    SELECT final_grade FROM submissions
+                    WHERE student_id = :uid AND activity_id = :aid 
+                      AND status IN ('submitted', 'graded', 'reviewed') AND final_grade IS NOT NULL
+                    ORDER BY submitted_at DESC
+                    LIMIT 1
+                """), {"uid": user_id, "aid": activity_id})
+                previous_submission = attempt_check.fetchone()
+                
+                if previous_submission:
+                    logger.warning(f"Actividad ya completada previamente con nota {previous_submission.final_grade}")
+                    raise HTTPException(
+                        status_code=status.HTTP_400_BAD_REQUEST,
+                        detail=f"Esta actividad ya fue completada. Nota final: {previous_submission.final_grade}/100. No se pueden hacer múltiples submissions."
+                    )
+        
         # 1. Execute current code (Draft or Final)
         logger.info(f"Submitting code for session {session_id}, exercise {request.exercise_id}")
         result = await use_case.execute(
@@ -1901,6 +1936,50 @@ Responde ÚNICAMENTE con JSON válido:
             )
 
 
+@router.get("/activities/{activity_id}/attempt")
+async def get_activity_attempt(
+    activity_id: str,
+    student_id: str,
+    db: AsyncSession = Depends(get_db_session)
+):
+    """
+    Get the previous attempt for this activity by the student.
+    Returns attempt details including status and final_grade.
+    """
+    try:
+        result = await db.execute(text("""
+            SELECT status, final_grade, submitted_at, ai_feedback
+            FROM submissions
+            WHERE student_id = :student_id AND activity_id = :activity_id
+              AND status IN ('submitted', 'graded', 'reviewed') AND final_grade IS NOT NULL
+            ORDER BY submitted_at DESC
+            LIMIT 1
+        """), {"student_id": student_id, "activity_id": activity_id})
+        
+        attempt = result.fetchone()
+        
+        if not attempt:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="No attempt found"
+            )
+        
+        return {
+            "status": attempt.status,
+            "final_grade": attempt.final_grade,
+            "submitted_at": attempt.submitted_at.isoformat() if attempt.submitted_at else None,
+            "ai_feedback": attempt.ai_feedback
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting activity attempt: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error getting attempt: {str(e)}"
+        )
+
+
 @router.post("/activities/{activity_id}/exercises/{exercise_id}/submit", response_model=SubmitCodeResponse)
 async def submit_exercise_code(activity_id: str, exercise_id: str, student_id: str, request: SubmitCodeRequest):
     """
@@ -2301,7 +2380,9 @@ PREGUNTA DEL ESTUDIANTE: {request.message}
 # ==================== LMS HIERARCHY ENDPOINTS ====================
 
 @router.get("/courses", response_model=List[CourseWithModules])
+@cached(ttl=120, key_prefix="student_courses")  # Cache for 2 minutes
 async def list_student_courses(
+    request: Request,
     student_id: str,
     db: AsyncSession = Depends(get_db_session)
 ):
@@ -2431,7 +2512,9 @@ async def list_student_courses(
 
 
 @router.get("/gamification", response_model=UserGamificationRead)
+@cached(ttl=30, key_prefix="student_gamification")  # Cache for 30 seconds
 async def get_student_gamification(
+    request: Request,
     student_id: str,
     db: AsyncSession = Depends(get_db_session)
 ):
@@ -2476,4 +2559,221 @@ async def get_student_gamification(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to get gamification: {str(e)}"
+        )
+
+
+# ==================== STUDENT PERSONAL DASHBOARD ====================
+
+class StudentActivitySummary(BaseModel):
+    """Summary of student activity"""
+    activity_id: str
+    title: str
+    status: str
+    grade: Optional[float]
+    submitted_at: Optional[datetime]
+    module_name: Optional[str]
+    exercises_completed: int
+    total_exercises: int
+
+class StudentStats(BaseModel):
+    """Student overall statistics"""
+    total_activities: int
+    completed_activities: int
+    in_progress_activities: int
+    average_grade: float
+    total_exercises_completed: int
+    total_submissions: int
+    best_grade: Optional[float]
+    worst_grade: Optional[float]
+    recent_activities: List[StudentActivitySummary]
+
+class StudentPersonalData(BaseModel):
+    """Student personal information"""
+    user_id: str
+    full_name: str
+    email: str
+    username: str
+    role: str
+    created_at: datetime
+
+class StudentDashboardResponse(BaseModel):
+    """Complete student dashboard data"""
+    personal_data: StudentPersonalData
+    stats: StudentStats
+    gamification: Optional[UserGamificationRead]
+
+@router.get("/dashboard", response_model=StudentDashboardResponse)
+@cached(ttl=60, key_prefix="student_dashboard")  # Cache for 1 minute
+async def get_student_dashboard(
+    request: Request,
+    student_id: str,
+    db: AsyncSession = Depends(get_db_session)
+):
+    """
+    Get complete student dashboard with personal data, statistics, and recent activities.
+    
+    Returns:
+    - Personal information
+    - Overall statistics (grades, activities, submissions)
+    - Recent activities with details
+    - Gamification data (XP, level, badges)
+    """
+    try:
+        # 1. Get student personal data
+        user_result = await db.execute(text("""
+            SELECT id, full_name, email, username, roles, created_at
+            FROM users
+            WHERE id = :student_id
+        """), {"student_id": student_id})
+        user_row = user_result.fetchone()
+        
+        if not user_row:
+            raise HTTPException(status_code=404, detail="Student not found")
+        
+        # roles is a JSON array, extract first role or default to 'student'
+        roles_data = user_row[4]
+        role_value = 'student'
+        if roles_data:
+            if isinstance(roles_data, list):
+                role_value = roles_data[0] if roles_data else 'student'
+            elif isinstance(roles_data, str):
+                import json
+                try:
+                    roles_list = json.loads(roles_data)
+                    role_value = roles_list[0] if roles_list else 'student'
+                except:
+                    role_value = roles_data
+        
+        personal_data = StudentPersonalData(
+            user_id=user_row[0],
+            full_name=user_row[1] or user_row[3],
+            email=user_row[2],
+            username=user_row[3],
+            role=role_value,
+            created_at=user_row[5]
+        )
+        
+        # 2. Get student submissions and grades
+        submissions_result = await db.execute(text("""
+            SELECT 
+                s.submission_id,
+                s.activity_id,
+                a.title,
+                s.status,
+                s.final_grade,
+                s.submitted_at,
+                m.title as module_name
+            FROM submissions s
+            JOIN activities a ON s.activity_id = a.activity_id
+            LEFT JOIN modules m ON a.module_id = m.module_id
+            WHERE s.student_id = :student_id
+            ORDER BY s.submitted_at DESC
+        """), {"student_id": student_id})
+        
+        submissions = submissions_result.fetchall()
+        
+        # 3. Get exercise completion data
+        activity_exercises_result = await db.execute(text("""
+            SELECT 
+                a.activity_id,
+                COUNT(DISTINCT e.exercise_id) as total_exercises,
+                COUNT(DISTINCT ea.exercise_id) as completed_exercises
+            FROM activities a
+            LEFT JOIN exercises_v2 e ON a.activity_id = e.activity_id
+            LEFT JOIN exercise_attempts_v2 ea ON e.exercise_id = ea.exercise_id 
+                AND ea.user_id = :student_id AND ea.passed = true
+            WHERE a.activity_id IN (
+                SELECT DISTINCT activity_id FROM submissions WHERE student_id = :student_id
+            )
+            GROUP BY a.activity_id
+        """), {"student_id": student_id})
+        
+        exercises_by_activity = {row[0]: {"total": row[1], "completed": row[2]} 
+                                for row in activity_exercises_result.fetchall()}
+        
+        # 4. Build activity summaries
+        recent_activities = []
+        completed_count = 0
+        in_progress_count = 0
+        grades = []
+        
+        for sub in submissions:
+            activity_id = sub[1]
+            grade = sub[4]
+            status_value = sub[3]
+            
+            # Determine status
+            if status_value in ['graded', 'reviewed'] and grade is not None:
+                activity_status = "completed"
+                completed_count += 1
+                grades.append(grade)
+            elif status_value == 'submitted':
+                activity_status = "submitted"
+                in_progress_count += 1
+            else:
+                activity_status = "in_progress"
+                in_progress_count += 1
+            
+            exercise_data = exercises_by_activity.get(activity_id, {"total": 0, "completed": 0})
+            
+            recent_activities.append(StudentActivitySummary(
+                activity_id=activity_id,
+                title=sub[2],
+                status=activity_status,
+                grade=grade,
+                submitted_at=sub[5],
+                module_name=sub[6],
+                exercises_completed=exercise_data["completed"],
+                total_exercises=exercise_data["total"]
+            ))
+        
+        # 5. Calculate statistics
+        total_activities = len(submissions)
+        average_grade = sum(grades) / len(grades) if grades else 0.0
+        best_grade = max(grades) if grades else None
+        worst_grade = min(grades) if grades else None
+        
+        # Count total exercises completed
+        total_exercises_result = await db.execute(text("""
+            SELECT COUNT(DISTINCT exercise_id)
+            FROM exercise_attempts_v2
+            WHERE user_id = :student_id AND passed = true
+        """), {"student_id": student_id})
+        total_exercises_completed = total_exercises_result.scalar() or 0
+        
+        stats = StudentStats(
+            total_activities=total_activities,
+            completed_activities=completed_count,
+            in_progress_activities=in_progress_count,
+            average_grade=round(average_grade, 2),
+            total_exercises_completed=total_exercises_completed,
+            total_submissions=len(submissions),
+            best_grade=best_grade,
+            worst_grade=worst_grade,
+            recent_activities=recent_activities[:10]  # Last 10 activities
+        )
+        
+        # 6. Get gamification data
+        gamification_query = await db.execute(
+            select(UserGamificationModel).where(UserGamificationModel.user_id == student_id)
+        )
+        gamification = gamification_query.scalar_one_or_none()
+        
+        gamification_data = None
+        if gamification:
+            gamification_data = UserGamificationRead.model_validate(gamification)
+        
+        return StudentDashboardResponse(
+            personal_data=personal_data,
+            stats=stats,
+            gamification=gamification_data
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to get student dashboard: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to get dashboard: {str(e)}"
         )

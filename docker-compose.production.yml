@@ -1,0 +1,360 @@
+version: '3.8'
+
+# ============================================================================
+# Production Docker Compose Configuration
+# ============================================================================
+# IMPORTANT: This file is for PRODUCTION deployment
+# - Use secure passwords and secrets
+# - Enable SSL/TLS
+# - Configure proper resource limits
+# - Enable monitoring and logging
+# ============================================================================
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ai_native_postgres_prod
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:?Database password required}
+      - POSTGRES_DB=${DB_NAME:-ai_native}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF8 --lc-collate=C --lc-ctype=C
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backups:/backups  # For database backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '1.0'
+          memory: 1G
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c max_connections=100
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=128MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=2621kB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+      -c max_worker_processes=4
+      -c max_parallel_workers_per_gather=2
+      -c max_parallel_workers=4
+      -c max_parallel_maintenance_workers=2
+      -c ssl=on
+      -c ssl_cert_file=/etc/ssl/certs/server.crt
+      -c ssl_key_file=/etc/ssl/private/server.key
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - ai_native_network
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: ai_native_chromadb_prod
+    restart: always
+    ports:
+      - "${CHROMA_PORT:-8001}:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_SERVER_AUTH_CREDENTIALS=${CHROMA_AUTH_CREDENTIALS}
+      - CHROMA_SERVER_AUTH_PROVIDER=chromadb.auth.token.TokenAuthServerProvider
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - ai_native_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: ai_native_redis_prod
+    restart: always
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    command: >
+      redis-server
+      --appendonly yes
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+      --requirepass ${REDIS_PASSWORD:?Redis password required}
+      --tcp-backlog 511
+      --timeout 300
+      --tcp-keepalive 300
+      --save 900 1
+      --save 300 10
+      --save 60 10000
+    healthcheck:
+      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - ai_native_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+      args:
+        - BUILD_DATE=${BUILD_DATE}
+        - VERSION=${VERSION:-1.0.0}
+    container_name: ai_native_backend_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '1.0'
+          memory: 1G
+      replicas: ${BACKEND_REPLICAS:-1}
+    environment:
+      # Application
+      - ENVIRONMENT=production
+      - APP_NAME=${APP_NAME:-AI-Native Classroom}
+      - APP_VERSION=${VERSION:-1.0.0}
+      - DEBUG=False
+      
+      # Database
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER:-postgres}:${DB_PASSWORD:?Database password required}@postgres:5432/${DB_NAME:-ai_native}
+      - DB_POOL_SIZE=10
+      - DB_MAX_OVERFLOW=20
+      - DB_POOL_TIMEOUT=30
+      - DB_POOL_RECYCLE=3600
+      - DB_SSL_MODE=require
+      
+      # Security
+      - SECRET_KEY=${SECRET_KEY:?Secret key required}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:?JWT secret key required}
+      - JWT_ALGORITHM=HS256
+      - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${JWT_ACCESS_TOKEN_EXPIRE_MINUTES:-30}
+      - JWT_REFRESH_TOKEN_EXPIRE_DAYS=${JWT_REFRESH_TOKEN_EXPIRE_DAYS:-7}
+      
+      # CORS
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:?Allowed origins required}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:?Allowed hosts required}
+      
+      # Rate Limiting
+      - RATE_LIMIT_PER_MINUTE=${RATE_LIMIT_PER_MINUTE:-60}
+      - RATE_LIMIT_PER_HOUR=${RATE_LIMIT_PER_HOUR:-1000}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - ENABLE_REQUEST_LOGGING=true
+      
+      # LLM Provider (only one should be active)
+      - LLM_PROVIDER=${LLM_PROVIDER:-mistral}
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - MISTRAL_MODEL=${MISTRAL_MODEL:-mistral-small-latest}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      
+      # Vector Database
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+      - CHROMA_COLLECTION_NAME=${CHROMA_COLLECTION_NAME:-ai_native_rag}
+      - CHROMA_AUTH_CREDENTIALS=${CHROMA_AUTH_CREDENTIALS}
+      
+      # Redis Cache
+      - REDIS_URL=redis://:${REDIS_PASSWORD:?Redis password required}@redis:6379/0
+      - REDIS_MAX_CONNECTIONS=50
+      - REDIS_SOCKET_TIMEOUT=5
+      - REDIS_SOCKET_CONNECT_TIMEOUT=5
+      - REDIS_RETRY_ON_TIMEOUT=True
+      
+      # File Uploads
+      - UPLOADS_DIR=/app/uploads
+      - MAX_UPLOAD_SIZE_MB=10
+      
+      # Feature Flags
+      - CODE_AUDITOR_ENABLED=${CODE_AUDITOR_ENABLED:-true}
+      - SOCRATIC_TUTOR_ENABLED=${SOCRATIC_TUTOR_ENABLED:-true}
+      
+      # Monitoring (optional)
+      - SENTRY_DSN=${SENTRY_DSN}
+      - LANGCHAIN_TRACING_V2=${LANGCHAIN_TRACING_V2:-false}
+      - LANGCHAIN_API_KEY=${LANGCHAIN_API_KEY}
+    
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    
+    depends_on:
+      postgres:
+        condition: service_healthy
+      chromadb:
+        condition: service_started
+      redis:
+        condition: service_healthy
+    
+    volumes:
+      - uploads_data:/app/uploads
+      - ./logs:/app/logs
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+    
+    networks:
+      - ai_native_network
+
+  # Nginx Reverse Proxy (optional but recommended)
+  nginx:
+    image: nginx:alpine
+    container_name: ai_native_nginx_prod
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./nginx/logs:/var/log/nginx
+    depends_on:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - ai_native_network
+
+  # Prometheus (Monitoring)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ai_native_prometheus
+    restart: always
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=15d'
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    networks:
+      - ai_native_network
+
+  # Grafana (Visualization)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ai_native_grafana
+    restart: always
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:?Grafana password required}
+      - GF_INSTALL_PLUGINS=
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    depends_on:
+      - prometheus
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    networks:
+      - ai_native_network
+
+volumes:
+  postgres_data:
+    driver: local
+  chroma_data:
+    driver: local
+  redis_data:
+    driver: local
+  uploads_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  ai_native_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

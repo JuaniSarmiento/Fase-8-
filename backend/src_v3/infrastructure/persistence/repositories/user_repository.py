@@ -109,12 +109,31 @@ class UserRepository:
         """Create a new user. Expects hashed_password already computed."""
         import json
         import uuid
+        import logging
+        from sqlalchemy.exc import IntegrityError
+        
+        logger = logging.getLogger(__name__)
+        
+        # Verificar si el email ya existe
+        existing_email = await self.get_by_email(data["email"])
+        if existing_email:
+            logger.warning(f"Attempt to create user with existing email: {data['email']}")
+            raise ValueError("Email already registered")
+        
+        # Verificar si el username ya existe
+        check_username_query = text(
+            "SELECT id FROM users WHERE username = :username"
+        )
+        result = await self.db.execute(check_username_query, {"username": data["username"]})
+        if result.fetchone():
+            logger.warning(f"Attempt to create user with existing username: {data['username']}")
+            raise ValueError("Username already exists")
         
         user_id = str(uuid.uuid4())
         query = text(
             """
-            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
-            VALUES (:id, :username, :email, :full_name, :hashed_password, CAST(:roles AS jsonb), :is_active)
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active, created_at, updated_at)
+            VALUES (:id, :username, :email, :full_name, :hashed_password, CAST(:roles AS jsonb), :is_active, NOW(), NOW())
             RETURNING id, username, email, full_name, roles, hashed_password, is_active
             """
         )
@@ -128,9 +147,20 @@ class UserRepository:
             "roles": json.dumps(roles_list),
             "is_active": data.get("is_active", True),
         }
-        result = await self.db.execute(query, params)
-        row = result.fetchone()
-        await self.db.commit()
+        
+        try:
+            result = await self.db.execute(query, params)
+            row = result.fetchone()
+            await self.db.commit()
+            logger.info(f"User created successfully: {data['username']} (ID: {user_id})")
+        except IntegrityError as e:
+            await self.db.rollback()
+            logger.error(f"Integrity error creating user: {e}")
+            raise ValueError("Failed to create user: username or email already exists")
+        except Exception as e:
+            await self.db.rollback()
+            logger.error(f"Unexpected error creating user: {e}", exc_info=True)
+            raise
 
         # RETURNING: id, username, email, full_name, roles, hashed_password, is_active
         roles = row[4] or []

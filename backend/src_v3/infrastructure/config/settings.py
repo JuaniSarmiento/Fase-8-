@@ -19,6 +19,10 @@ class Settings(BaseSettings):
     
     # Redis
     REDIS_URL: str = "redis://redis:6379/0"
+    REDIS_MAX_CONNECTIONS: int = 50
+    REDIS_SOCKET_TIMEOUT: int = 5
+    REDIS_SOCKET_CONNECT_TIMEOUT: int = 5
+    REDIS_RETRY_ON_TIMEOUT: bool = True
     
     # Security
     SECRET_KEY: str = "CHANGE_ME_IN_PRODUCTION"  # Legacy, usar JWT_SECRET_KEY
@@ -61,6 +65,11 @@ class Settings(BaseSettings):
     def allowed_origins_list(self) -> List[str]:
         """Parse ALLOWED_ORIGINS into list."""
         return [origin.strip() for origin in self.ALLOWED_ORIGINS.split(",")]
+
+
+def get_settings() -> Settings:
+    """Get settings instance."""
+    return settings
 
 
 # Global settings instance

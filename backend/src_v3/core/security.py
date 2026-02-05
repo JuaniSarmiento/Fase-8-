@@ -38,11 +38,33 @@ if not SECRET_KEY:
             "For production, set JWT_SECRET_KEY in environment with: python -c 'import secrets; print(secrets.token_hex(32))'"
         )
 
-if _is_production and len(SECRET_KEY) < 32:
-    raise RuntimeError(
-        f"SECURITY ERROR: JWT_SECRET_KEY must be at least 32 characters long. "
-        f"Current length: {len(SECRET_KEY)}."
-    )
+# Validaciones de seguridad para producción
+if _is_production:
+    if len(SECRET_KEY) < 32:
+        raise RuntimeError(
+            f"SECURITY ERROR: JWT_SECRET_KEY must be at least 32 characters long. "
+            f"Current length: {len(SECRET_KEY)}."
+        )
+    
+    # Verificar que no se esté usando la clave por defecto
+    default_keys = [
+        "fase8-dev-secret-key-change-in-production-please",
+        "fase8-jwt-secret-key-development-only",
+        "secret",
+        "changeme",
+    ]
+    if SECRET_KEY in default_keys:
+        raise RuntimeError(
+            "SECURITY ERROR: Default development JWT_SECRET_KEY detected in production. "
+            "Generate a secure key with: python -c 'import secrets; print(secrets.token_hex(32))'"
+        )
+    
+    # Advertir si el token expira en más de 24 horas
+    if ACCESS_TOKEN_EXPIRE_MINUTES > 1440:  # 24 horas
+        logger.warning(
+            f"SECURITY WARNING: ACCESS_TOKEN_EXPIRE_MINUTES is set to {ACCESS_TOKEN_EXPIRE_MINUTES} minutes. "
+            "Consider using a shorter expiration time for better security."
+        )
 
 
 def utc_now() -> datetime:

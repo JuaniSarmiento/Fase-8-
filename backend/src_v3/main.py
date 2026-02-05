@@ -2,8 +2,10 @@
 
 Main application setup with dependency injection, metrics and health checks.
 """
+import os
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from contextlib import asynccontextmanager
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -18,6 +20,13 @@ from backend.src_v3.infrastructure.http.api.v3.routers import (
     catalog_router,
 )
 from backend.src_v3.infrastructure.persistence.database import get_db_session
+from backend.src_v3.core.rate_limiter import RateLimitMiddleware
+from backend.src_v3.core.security_middleware import (
+    SecurityHeadersMiddleware,
+    SQLInjectionDetector,
+    RequestLoggingMiddleware,
+    XSSProtectionMiddleware,
+)
 
 
 # ==================== LIFESPAN ====================
@@ -56,20 +65,64 @@ async def lifespan(app: FastAPI):
 def create_app() -> FastAPI:
     """Create FastAPI application"""
     
+    # Get environment
+    environment = os.getenv("ENVIRONMENT", "development")
+    is_production = environment.lower() == "production"
+    
     app = FastAPI(
         title="Fase 8 Backend - Clean Architecture",
         description="AI-Native Learning Platform with Clean Architecture + DDD",
         version="3.0.0",
         lifespan=lifespan,
+        # Hide docs in production
+        docs_url="/docs" if not is_production else None,
+        redoc_url="/redoc" if not is_production else None,
     )
     
-    # CORS
+    # ==================== SECURITY MIDDLEWARES ====================
+    
+    # 1. Trusted Host Middleware (prevent host header attacks)
+    if is_production:
+        allowed_hosts = os.getenv("ALLOWED_HOSTS", "").split(",")
+        if allowed_hosts and allowed_hosts[0]:
+            app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts)
+    
+    # 2. Security Headers Middleware
+    app.add_middleware(SecurityHeadersMiddleware)
+    
+    # 3. Rate Limiting Middleware
+    requests_per_minute = int(os.getenv("RATE_LIMIT_PER_MINUTE", "60"))
+    requests_per_hour = int(os.getenv("RATE_LIMIT_PER_HOUR", "1000"))
+    app.add_middleware(
+        RateLimitMiddleware,
+        requests_per_minute=requests_per_minute,
+        requests_per_hour=requests_per_hour
+    )
+    
+    # 4. SQL Injection Detection
+    app.add_middleware(SQLInjectionDetector)
+    
+    # 5. XSS Protection
+    app.add_middleware(XSSProtectionMiddleware)
+    
+    # 6. Request Logging
+    if os.getenv("ENABLE_REQUEST_LOGGING", "true").lower() == "true":
+        app.add_middleware(RequestLoggingMiddleware)
+    
+    # ==================== CORS ====================
+    
+    # Get allowed origins from environment
+    allowed_origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:3001")
+    allowed_origins = [origin.strip() for origin in allowed_origins_str.split(",")]
+    
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://localhost:3000", "http://localhost:3001"],  # Frontend URLs
+        allow_origins=allowed_origins,
         allow_credentials=True,
-        allow_methods=["*"],
+        allow_methods=["GET", "POST", "PUT", "DELETE", "PATCH"],
         allow_headers=["*"],
+        expose_headers=["X-RateLimit-Limit-Minute", "X-RateLimit-Limit-Hour"],
+        max_age=3600,  # Cache preflight requests for 1 hour
     )
     
     # Routers

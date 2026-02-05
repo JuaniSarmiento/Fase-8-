@@ -5,7 +5,7 @@ FastAPI router that delegates to use cases.
 No business logic here - only HTTP concerns.
 """
 import logging
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Request
 from typing import Optional, List
 from pydantic import BaseModel
 from datetime import datetime
@@ -24,6 +24,7 @@ from backend.src_v3.application.analytics.use_cases.get_student_risk_profile imp
     GetStudentRiskProfileCommand,
 )
 from backend.src_v3.core.domain.exceptions import EntityNotFoundException
+from backend.src_v3.infrastructure.cache.decorators import cached
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/analytics", tags=["Analytics V3"])
@@ -71,12 +72,14 @@ async def get_student_risk_profile_use_case(
 # ==================== Endpoints ====================
 
 @router.get("/courses/{course_id}", response_model=CourseAnalyticsResponse)
+@cached(ttl=60, key_prefix="course_analytics")  # Cache for 1 minute
 async def get_course_analytics(
+    request: Request,
     course_id: str,
     use_case: GetCourseAnalyticsUseCase = Depends(get_course_analytics_use_case)
 ):
     """
-    Get aggregated analytics for a course.
+    Get aggregated analytics for a course (cached for 1 minute).
     
     Returns:
     - Total students
@@ -92,38 +95,40 @@ async def get_course_analytics(
     4. Repository → Database (SQLAlchemy)
     5. Response flows back through layers
     """
+    logger.info(f"📊 Fetching analytics for course: {course_id}")
     try:
         # Create command from HTTP request
         command = GetCourseAnalyticsCommand(course_id=course_id)
         
         # Execute use case
-        # Execute use case
         analytics = await use_case.execute(command)
         
-        # Convert domain entity to HTTP response
-        return CourseAnalyticsResponse(**analytics.to_dict())        
+        logger.info(f"✅ Analytics retrieved for course {course_id}: {analytics.total_students} students")
+        
         # Convert domain entity to HTTP response
         return CourseAnalyticsResponse(**analytics.to_dict())
         
     except ValueError as e:
-        logger.warning(f"Validation error: {e}")
+        logger.warning(f"⚠️  Validation error: {e}")
         raise HTTPException(status_code=400, detail=str(e))
     except EntityNotFoundException as e:
-        logger.warning(f"Entity not found: {e}")
+        logger.warning(f"⚠️  Entity not found: {e}")
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
-        logger.error(f"Unexpected error in get_course_analytics: {e}", exc_info=True)
+        logger.error(f"❌ Unexpected error in get_course_analytics: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @router.get("/students/{student_id}", response_model=StudentRiskProfileResponse)
+@cached(ttl=45, key_prefix="student_risk")  # Cache for 45 seconds
 async def get_student_risk_profile(
+    request: Request,
     student_id: str,
     course_id: Optional[str] = None,
     use_case: GetStudentRiskProfileUseCase = Depends(get_student_risk_profile_use_case)
 ):
     """
-    Get risk profile for a specific student.
+    Get risk profile for a specific student (cached for 45 seconds).
     
     Query Parameters:
     - course_id (optional): Filter by specific course
@@ -220,13 +225,17 @@ async def get_activity_submissions_analytics(
         if not activity:
             raise HTTPException(status_code=404, detail=f"Activity {activity_id} not found")
         
-        # Step 2: Get all sessions with student data (LEFT JOIN to include test students)
-        result = await db.execute(
-            select(SessionModelV2, UserModel)
-            .outerjoin(UserModel, SessionModelV2.user_id == UserModel.id)
-            .where(SessionModelV2.activity_id == activity_id)
-            .order_by(UserModel.full_name, UserModel.username)
-        )
+        # Step 2: Get LATEST session per student (DISTINCT ON to avoid duplicates)
+        # Use raw SQL with DISTINCT ON to get only the most recent session per student
+        result = await db.execute(text("""
+            SELECT DISTINCT ON (sv.user_id)
+                sv.session_id, sv.user_id, sv.activity_id, sv.status, sv.session_metrics, sv.start_time,
+                u.id, u.full_name, u.username, u.email
+            FROM sessions_v2 sv
+            LEFT JOIN users u ON sv.user_id = u.id
+            WHERE sv.activity_id = :activity_id
+            ORDER BY sv.user_id, sv.start_time DESC
+        """), {"activity_id": activity_id})
         rows = result.all()
         
         # Step 2b: ALSO get submissions that don't have sessions yet
@@ -254,27 +263,39 @@ async def get_activity_submissions_analytics(
         # Step 3: Build response
         analytics = []
         
-        # Process sessions first
-        for session, user in rows:
-            # Handle both real users and test students (user might be None for test students)
-            if user:
-                student_name = user.full_name or user.username
-                student_email = user.email
-                user_id_for_queries = user.id
+        # Process sessions first (now rows are raw SQL tuples)
+        for row in rows:
+            # Unpack the row: session_id, user_id, activity_id, status, session_metrics, start_time,
+            #                  u.id, u.full_name, u.username, u.email
+            session_id = row[0]
+            user_id = row[1]
+            activity_id_from_session = row[2]
+            session_status = row[3]
+            session_metrics = row[4]
+            start_time = row[5]
+            user_db_id = row[6]
+            full_name = row[7]
+            username = row[8]
+            email = row[9]
+            
+            # Handle both real users and test students
+            if user_db_id:
+                student_name = full_name or username
+                student_email = email
+                user_id_for_queries = user_db_id
             else:
                 # Test student without user record
-                student_name = f"Estudiante {session.user_id[:8]}"
-                student_email = f"{session.user_id}@test.com"
-                user_id_for_queries = session.user_id
+                student_name = f"Estudiante {user_id[:8]}"
+                student_email = f"{user_id}@test.com"
+                user_id_for_queries = user_id
             
             # Determine status
-            if session.status:
-                status = session.status.title()
+            if session_status:
+                status = session_status.title()
             else:
                 status = "Active"
             
             # Get exercise grades for this student and activity
-            # Usar session_id directamente ya que user_id puede ser NULL para tests
             exercises_result = await db.execute(text("""
                 SELECT 
                     ea.exercise_id,
@@ -291,7 +312,7 @@ async def get_activity_submissions_analytics(
                       ORDER BY submitted_at DESC LIMIT 1
                   )
                 ORDER BY e.unit_number
-            """), {"session_id": session.session_id, "activity_id": activity_id})
+            """), {"session_id": session_id, "activity_id": activity_id})
             
             exercises = []
             total_grade = 0
@@ -311,8 +332,8 @@ async def get_activity_submissions_analytics(
             
             # Get grade: prioritize session_metrics.final_grade, then submissions table, then exercise average
             final_grade = None
-            if session.session_metrics and isinstance(session.session_metrics, dict):
-                final_grade = session.session_metrics.get("final_grade")
+            if session_metrics and isinstance(session_metrics, dict):
+                final_grade = session_metrics.get("final_grade")
                 logger.info(f"Grade from session_metrics: {final_grade}")
             
             # Check submissions table if no session grade
@@ -339,7 +360,7 @@ async def get_activity_submissions_analytics(
                 FROM risks_v2
                 WHERE session_id = :session_id
                 ORDER BY created_at DESC LIMIT 1
-            """), {"session_id": session.session_id})
+            """), {"session_id": session_id})
             risk_row = risk_result.fetchone()
             
             risk_analysis = None
@@ -414,7 +435,7 @@ async def get_activity_submissions_analytics(
                     status=status,
                     grade=final_grade,
                     grade_justification=grade_justification,
-                    submitted_at=session.start_time,
+                    submitted_at=start_time,
                     ai_feedback=grade_justification,
                     risk_alert=risk_alert,
                     risk_analysis=risk_analysis,

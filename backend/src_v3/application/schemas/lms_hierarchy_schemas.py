@@ -36,7 +36,7 @@ class ModuleBase(BaseModel):
     title: str = Field(..., min_length=1, max_length=255)
     description: Optional[str] = None
     order_index: int = Field(default=0, ge=0)
-    is_published: bool = False
+    is_published: bool = True  # Publicar por defecto para que sea visible por estudiantes
     metadata_json: dict = Field(default_factory=dict)
 
 

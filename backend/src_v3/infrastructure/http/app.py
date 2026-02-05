@@ -4,6 +4,7 @@ FastAPI Application Factory
 Creates and configures the FastAPI app with all routers and middleware.
 """
 import logging
+import os
 
 # Setup enhanced logging FIRST
 from ..logging_config import setup_logging
@@ -34,6 +35,9 @@ from .api.middleware.error_handler import (
 )
 from backend.src_v3.core.domain.exceptions import DomainException
 
+# Import security middleware
+from .middleware import setup_rate_limiting, setup_security_headers
+
 # Configure logging
 logging.basicConfig(
     level=getattr(logging, settings.LOG_LEVEL),
@@ -53,6 +57,23 @@ async def lifespan(app: FastAPI):
     logger.info("Starting AI-Native MVP V3 (Clean Architecture)")
     logger.info("Initializing database connection...")
     
+    # Initialize Redis
+    logger.info("Initializing Redis cache...")
+    try:
+        from backend.src_v3.infrastructure.cache import get_redis_cache
+        redis_cache = await get_redis_cache()
+        logger.info("✅ Redis cache initialized successfully")
+        
+        # Store in app state
+        app.state.redis_cache = redis_cache
+        
+        # Log initial stats
+        stats = await redis_cache.get_stats()
+        logger.info(f"📊 Redis Stats: {stats}")
+    except Exception as e:
+        logger.error(f"❌ Failed to initialize Redis: {e}")
+        logger.warning("⚠️  Application will continue without cache")
+    
     # Note: Tables should be created via Alembic migrations
     # This is just for development
     # from ..persistence.sqlalchemy.database import Base
@@ -63,6 +84,12 @@ async def lifespan(app: FastAPI):
     
     # Shutdown
     logger.info("Shutting down application...")
+    
+    # Disconnect Redis
+    if hasattr(app.state, 'redis_cache'):
+        logger.info("Disconnecting Redis...")
+        await app.state.redis_cache.disconnect()
+    
     await async_engine.dispose()
 
 
@@ -72,6 +99,8 @@ def create_app() -> FastAPI:
     
     Creates and configures FastAPI app with:
     - CORS middleware
+    - Security headers
+    - Rate limiting
     - Error handlers
     - API routers
     - Health check endpoints
@@ -89,6 +118,14 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
         debug=settings.DEBUG
     )
+    
+    # ==================== Security Middleware ====================
+    # Enable rate limiting (disable in development if needed)
+    is_production = os.getenv("ENVIRONMENT", "development").lower() == "production"
+    setup_rate_limiting(app, enabled=is_production or os.getenv("ENABLE_RATE_LIMIT", "false").lower() == "true")
+    
+    # Enable security headers (HSTS only in production with HTTPS)
+    setup_security_headers(app, enable_hsts=is_production)
     
     # ==================== CORS Configuration ====================
     # SECURITY: Only allow specific origins and methods
@@ -145,14 +182,27 @@ def create_app() -> FastAPI:
         except Exception as e:
             db_status = f"error: {str(e)[:50]}"
         
-        status = "healthy" if db_status == "ok" else "degraded"
+        # Check Redis
+        redis_status = "not_configured"
+        try:
+            if hasattr(app.state, 'redis_cache'):
+                redis_cache = app.state.redis_cache
+                if await redis_cache.is_healthy():
+                    redis_status = "ok"
+                else:
+                    redis_status = "unhealthy"
+        except Exception as e:
+            redis_status = f"error: {str(e)[:50]}"
+        
+        status = "healthy" if (db_status == "ok" and redis_status == "ok") else "degraded"
         
         return {
             "status": status,
             "version": settings.APP_VERSION,
             "architecture": "Clean Architecture + DDD",
             "checks": {
-                "database": db_status
+                "database": db_status,
+                "redis": redis_status
             }
         }
     

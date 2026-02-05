@@ -1,163 +1,1025 @@
-2026-02-03 13:17:11 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:17:51 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
-2026-02-03 13:18:34 - watchfiles.main - INFO - _log_changes:308 - 98 changes detected
-2026-02-03 13:18:34 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:18:34 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:18:34 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:18:34 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:18:34 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:18:34 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:18:34 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:18:34 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:18:34 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:18:34 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:18:34 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:18:34 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:18:34 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:18:34 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:18:34 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:18:36 - watchfiles.main - INFO - _log_changes:308 - 52 changes detected
-2026-02-03 13:18:42 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:18:42 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:18:42 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:18:42 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
-2026-02-03 13:19:12 - watchfiles.main - INFO - _log_changes:308 - 120 changes detected
-2026-02-03 13:19:12 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
-2026-02-03 13:19:12 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:19:12 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:19:12 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:19:12 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:19:12 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:19:12 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:19:12 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:19:12 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:19:12 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:19:12 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:19:12 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:19:12 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:19:12 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:19:12 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:19:12 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:19:14 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
-2026-02-03 13:19:18 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:19:19 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:19:19 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:19:19 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
-2026-02-03 13:19:53 - watchfiles.main - INFO - _log_changes:308 - 5 changes detected
-2026-02-03 13:19:54 - watchfiles.main - INFO - _log_changes:308 - 7 changes detected
-2026-02-03 13:19:54 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
-2026-02-03 13:19:54 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:19:54 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:19:54 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:19:54 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:19:54 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:19:54 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:19:54 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:19:54 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:19:54 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:19:54 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:19:54 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:19:54 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:19:54 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:19:54 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:19:55 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
-2026-02-03 13:20:00 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:20:00 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:20:00 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:20:00 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
-2026-02-03 13:20:33 - watchfiles.main - INFO - _log_changes:308 - 10 changes detected
-2026-02-03 13:20:34 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:21:05 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:21:40 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:22:22 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:22:23 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:22:24 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:22:24 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:23:02 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:23:02 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:23:32 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:23:32 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:23:32 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
-2026-02-03 13:23:32 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:23:32 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:23:32 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:23:32 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:23:32 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:23:32 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:23:32 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:23:32 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:23:32 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:23:32 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:23:32 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:23:32 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:23:32 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:23:32 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:23:38 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:23:38 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:23:38 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:23:38 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
-2026-02-03 13:24:05 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:24:06 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:24:35 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:25:11 - watchfiles.main - INFO - _log_changes:308 - 62 changes detected
-2026-02-03 13:25:11 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
-2026-02-03 13:25:12 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:25:12 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:25:12 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:25:12 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:25:12 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:25:12 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:25:12 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:25:12 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:25:12 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:25:12 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:25:12 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:25:12 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:25:12 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:25:12 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:25:17 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:25:17 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:25:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:25:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
-2026-02-03 13:25:44 - watchfiles.main - INFO - _log_changes:308 - 21 changes detected
-2026-02-03 13:25:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
-2026-02-03 13:25:45 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:25:45 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:25:45 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:25:45 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:25:45 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:25:45 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:25:45 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:25:45 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:25:45 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:25:45 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:25:45 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:25:45 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:25:45 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:25:45 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:25:45 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:25:51 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:25:51 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:25:51 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:25:51 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
-2026-02-03 13:26:21 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:26:21 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+2026-02-05 18:45:19 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:45:19 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:45:19 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:45:19 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:45:19 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:45:19 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:45:19 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:45:19 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:45:19 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:45:19 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:45:19 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:45:19 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:45:19 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:45:19 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:46:03 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
+2026-02-05 18:46:04 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:46:04 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:46:04 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:46:04 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:46:04 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:46:04 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:46:04 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:46:04 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:46:04 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:46:04 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:46:04 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:46:04 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:46:04 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:46:04 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:46:15 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
+2026-02-05 18:46:15 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
+2026-02-05 18:46:15 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:46:15 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:47:14 - watchfiles.main - INFO - _log_changes:308 - 5 changes detected
+2026-02-05 18:47:15 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
+2026-02-05 18:47:15 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:47:15 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:47:15 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:47:15 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:47:15 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:47:15 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:47:15 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:47:15 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:47:15 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:47:15 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:47:15 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:47:15 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:47:15 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:47:15 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:47:15 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:47:15 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:47:15 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:47:15 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:47:15 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:47:15 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:47:15 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:47:21 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:47:21 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:47:21 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:47:21 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:47:21 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 18:47:22 - backend.src_v3.infrastructure.http.app - ERROR - lifespan:70 - ❌ Failed to initialize Redis: cannot import name 'get_settings' from 'backend.src_v3.infrastructure.config.settings' (/app/backend/src_v3/infrastructure/config/settings.py)
+2026-02-05 18:47:22 - backend.src_v3.infrastructure.http.app - WARNING - lifespan:71 - ⚠️  Application will continue without cache
+2026-02-05 18:48:07 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:48:09 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:48:09 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 18:48:10 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:48:10 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:48:10 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:48:10 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:48:10 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:48:10 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:48:10 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:48:10 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:48:10 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:48:10 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:48:10 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:48:10 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:48:10 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:48:10 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:48:16 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://localhost:6379/0
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.cache.redis_client - ERROR - connect:68 - ❌ Failed to connect to Redis: Error 111 connecting to localhost:6379. Connection refused.
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.http.app - ERROR - lifespan:70 - ❌ Failed to initialize Redis: Error 111 connecting to localhost:6379. Connection refused.
+2026-02-05 18:48:17 - backend.src_v3.infrastructure.http.app - WARNING - lifespan:71 - ⚠️  Application will continue without cache
+2026-02-05 18:49:09 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:49:11 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:49:11 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 18:49:11 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:49:11 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:49:11 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:49:11 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:49:11 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:49:11 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:49:11 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:49:11 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:49:11 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:49:11 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:49:11 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:49:11 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:49:11 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:49:11 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:49:11 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:49:17 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://localhost:6379/0
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.cache.redis_client - ERROR - connect:68 - ❌ Failed to connect to Redis: Error 111 connecting to localhost:6379. Connection refused.
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.http.app - ERROR - lifespan:70 - ❌ Failed to initialize Redis: Error 111 connecting to localhost:6379. Connection refused.
+2026-02-05 18:49:18 - backend.src_v3.infrastructure.http.app - WARNING - lifespan:71 - ⚠️  Application will continue without cache
+2026-02-05 18:50:00 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 18:50:23 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:50:23 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:50:23 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:50:23 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:50:23 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:50:23 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:50:23 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:50:23 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:50:23 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:50:23 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:50:23 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:50:23 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:50:23 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:50:24 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:50:32 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:50:32 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:50:32 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:50:32 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:50:32 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:50:32 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:50:32 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:50:32 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:50:32 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:50:32 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:50:32 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:50:32 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:50:32 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:50:32 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:50:32 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1014.62K
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - ✅ Redis cache initialized successfully
+2026-02-05 18:50:39 - backend.src_v3.infrastructure.http.app - INFO - lifespan:68 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 26, 'connected_clients': 1, 'used_memory_human': '1.01M', 'used_memory_peak_human': '1.01M', 'total_commands_processed': 6, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 0, 'keyspace_misses': 0, 'hit_rate': 'N/A'}
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT 1
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00378s] ()
+2026-02-05 18:51:07 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 18:51:55 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - detailed_health_check:41 - 🏥 Performing detailed health check...
+2026-02-05 18:51:55 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:51:55 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT 1
+2026-02-05 18:51:55 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 51.24s ago] ()
+2026-02-05 18:51:55 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - detailed_health_check:61 - ✅ Database: healthy
+2026-02-05 18:51:55 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - detailed_health_check:85 - ✅ Redis: healthy (hit_rate: N/A)
+2026-02-05 18:51:55 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - detailed_health_check:108 - 🏥 Health check complete: healthy
+2026-02-05 18:51:55 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:52:04 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:188 - 📊 Fetching Redis statistics...
+2026-02-05 18:52:04 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:194 - ✅ Redis stats retrieved: N/A hit rate
+2026-02-05 18:52:18 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - test_redis:215 - 🧪 Testing Redis operations...
+2026-02-05 18:52:18 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: test:redis:connection
+2026-02-05 18:52:18 - backend.src_v3.infrastructure.cache.redis_client - INFO - get:120 - ✅ Cache HIT: test:redis:connection
+2026-02-05 18:52:18 - backend.src_v3.infrastructure.cache.redis_client - INFO - delete:204 - ✅ Cache DELETE successful: test:redis:connection
+2026-02-05 18:52:18 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - test_redis:235 - ✅ Redis test completed successfully
+2026-02-05 18:52:24 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.cache.decorators - ERROR - wrapper:120 - ❌ Cache error for system_stats: cache_key_builder() got multiple values for argument 'request'
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.cache.decorators - WARNING - wrapper:121 - ⚠️  Falling back to uncached execution
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00148s] ()
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00113s] ()
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00125s] ()
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00203s] ()
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.cache.decorators - ERROR - wrapper:120 - ❌ Cache error for system_stats: cache_key_builder() got multiple values for argument 'request'
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.cache.decorators - WARNING - wrapper:121 - ⚠️  Falling back to uncached execution
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.06716s ago] ()
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.05459s ago] ()
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.04907s ago] ()
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.04428s ago] ()
+2026-02-05 18:52:28 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:52:28 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:52:54 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 18:52:54 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Disconnecting Redis...
+2026-02-05 18:52:54 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 18:52:54 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 18:52:56 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:52:56 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:52:56 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:52:56 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:52:56 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:52:56 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:52:56 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:52:56 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:52:56 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:52:56 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:52:56 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:52:56 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:52:56 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:52:56 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:53:01 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:53:01 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:53:01 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:53:01 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:53:01 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:53:01 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:53:01 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:53:01 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:53:02 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:53:02 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:53:02 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:53:02 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:53:02 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:53:02 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:53:02 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:53:09 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - ✅ Redis cache initialized successfully
+2026-02-05 18:53:10 - backend.src_v3.infrastructure.http.app - INFO - lifespan:68 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 177, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 34, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 1, 'keyspace_misses': 0, 'hit_rate': '100.00%'}
+2026-02-05 18:53:32 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:111 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 18:53:32 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00279s] ()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00118s] ()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00237s] ()
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00187s] ()
+2026-02-05 18:53:32 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:53:32 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:e6b7349dc0577c688d48f6eafb9c8b23
+2026-02-05 18:53:32 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:116 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 18:53:32 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:53:40 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:111 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 18:53:40 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 7.727s ago] ()
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 7.724s ago] ()
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 7.723s ago] ()
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 7.722s ago] ()
+2026-02-05 18:53:40 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:53:40 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:006a23a6e379dbf7f510838a516882e4
+2026-02-05 18:53:40 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:116 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 18:53:40 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:53:46 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:111 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 18:53:46 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 13.83s ago] ()
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 13.82s ago] ()
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 13.82s ago] ()
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 13.82s ago] ()
+2026-02-05 18:53:46 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:53:46 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:8003eb127563acf2f6f9f920b480eac3
+2026-02-05 18:53:46 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:116 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 18:53:46 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:53:56 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:111 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 18:53:56 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 23.79s ago] ()
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 23.79s ago] ()
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 23.79s ago] ()
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 23.78s ago] ()
+2026-02-05 18:53:56 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:53:56 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:48a231079be7d1c0f74bbbb58bfb72a1
+2026-02-05 18:53:56 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:116 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 18:53:56 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:54:11 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 18:54:11 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Disconnecting Redis...
+2026-02-05 18:54:11 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 18:54:11 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 18:54:12 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:54:12 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:54:12 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:54:12 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:54:12 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:54:12 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:54:12 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:54:12 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:54:12 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:54:12 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:54:12 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:54:12 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:54:12 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:54:12 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:54:19 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:54:20 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:54:20 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:54:20 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:54:20 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:54:20 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:54:20 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:54:20 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:54:20 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 18:54:20 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 18:54:20 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 18:54:20 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 18:54:20 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 18:54:20 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 18:54:20 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - ✅ Redis cache initialized successfully
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.app - INFO - lifespan:68 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 253, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 55, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 1, 'keyspace_misses': 4, 'hit_rate': '20.00%'}
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:113 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00139s] ()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00149s] ()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00121s] ()
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00268s] ()
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 9 users, 30 sessions
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:9505732c81570138bbdd2cb93202d986
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:118 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 18:54:26 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.redis_client - INFO - get:120 - ✅ Cache HIT: cache:system_stats:9505732c81570138bbdd2cb93202d986
+2026-02-05 18:54:26 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:109 - ✅ Cache HIT for system_stats
+2026-02-05 18:55:05 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:55:05 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 18:55:07 - watchfiles.main - INFO - _log_changes:308 - 7 changes detected
+2026-02-05 18:55:07 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:55:07 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 18:55:08 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 18:55:53 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:55:56 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:55:56 - watchfiles.main - INFO - _log_changes:308 - 17 changes detected
+2026-02-05 18:55:58 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:55:58 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:55:58 - watchfiles.main - INFO - _log_changes:308 - 5 changes detected
+2026-02-05 18:55:59 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:56:10 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:56:10 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 18:56:10 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00262s] ('c1c4b10a-379c-4f03-9c17-a85b24ba574d', 'Rami25', 'ramirocarreras@gmail.com', 'Ramiro Carreras', '$2b$12$uL2NHEMlIj/NiZ3YXH8NJe8FvGXBNtg2GI2umHo2SL5//HsAl/2xO', '["student"]', True)
+2026-02-05 18:56:10 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:56:14 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:188 - 📊 Fetching Redis statistics...
+2026-02-05 18:56:14 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:194 - ✅ Redis stats retrieved: 28.57% hit rate
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT 1
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00134s] ()
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:188 - 📊 Fetching Redis statistics...
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:194 - ✅ Redis stats retrieved: 28.57% hit rate
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:113 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 127.1s ago] ()
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 127.1s ago] ()
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 127.1s ago] ()
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 127.1s ago] ()
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 10 users, 30 sessions
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:9505732c81570138bbdd2cb93202d986
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:118 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 18:56:25 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.cache.redis_client - INFO - get:120 - ✅ Cache HIT: cache:system_stats:9505732c81570138bbdd2cb93202d986
+2026-02-05 18:56:25 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:109 - ✅ Cache HIT for system_stats
+2026-02-05 18:56:48 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 18:56:48 - watchfiles.main - INFO - _log_changes:308 - 40 changes detected
+2026-02-05 18:56:48 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:57:42 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 18:57:43 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 18:58:51 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:00:07 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:01:15 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:02:10 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:03:06 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:03:09 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:03:09 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 19:03:09 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Disconnecting Redis...
+2026-02-05 19:03:09 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 19:03:09 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 19:03:09 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:03:09 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:03:09 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:03:09 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:03:09 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:03:09 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:03:09 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:03:09 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:03:09 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:03:09 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:03:09 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:03:09 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:03:09 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:03:09 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - ✅ Redis cache initialized successfully
+2026-02-05 19:03:17 - backend.src_v3.infrastructure.http.app - INFO - lifespan:68 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 784, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 124, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 3, 'keyspace_misses': 6, 'hit_rate': '33.33%'}
+2026-02-05 19:04:04 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:04:06 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:04:06 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 19:04:06 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Disconnecting Redis...
+2026-02-05 19:04:06 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 19:04:06 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 19:04:07 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:04:07 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:04:07 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:04:07 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:04:07 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:04:07 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:04:07 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:04:07 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:04:07 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:04:07 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:04:07 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:04:07 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:04:07 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:04:07 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - ✅ Redis cache initialized successfully
+2026-02-05 19:04:14 - backend.src_v3.infrastructure.http.app - INFO - lifespan:68 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 841, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 135, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 3, 'keyspace_misses': 6, 'hit_rate': '33.33%'}
+2026-02-05 19:04:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 19:04:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Disconnecting Redis...
+2026-02-05 19:04:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 19:04:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 19:04:46 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:04:46 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:04:46 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:04:46 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:04:46 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:04:46 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:04:46 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:04:46 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:04:46 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:04:46 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:04:46 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:04:46 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:04:46 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:04:46 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:06:58 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:06:58 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:06:58 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:06:58 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:06:58 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:06:58 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:06:58 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:06:58 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:06:58 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:06:58 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:06:58 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:06:58 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:06:58 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:06:58 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:07:06 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:07:07 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:07:07 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:07:07 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:07:07 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:07:07 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:07:07 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:07:07 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:07:07 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:07:07 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:07:07 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:07:07 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:07:07 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:07:07 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:07:07 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:07:11 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.http.app - INFO - create_app:211 - Application created successfully
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Initializing Redis cache...
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - ✅ Redis cache initialized successfully
+2026-02-05 19:07:12 - backend.src_v3.infrastructure.http.app - INFO - lifespan:68 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 1019, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 159, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 3, 'keyspace_misses': 6, 'hit_rate': '33.33%'}
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT 1
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00684s] ()
+2026-02-05 19:07:25 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:08:31 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:113 - ❌ Cache MISS for system_stats - executing function
+2026-02-05 19:08:31 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:145 - 📊 Fetching system statistics...
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM users
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00208s] ()
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00170s] ()
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM exercise_attempts_v2
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00190s] ()
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT COUNT(*) FROM sessions_v2 WHERE DATE(start_time) = CURRENT_DATE
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00179s] ()
+2026-02-05 19:08:31 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - system_stats:173 - ✅ Statistics retrieved: 10 users, 30 sessions
+2026-02-05 19:08:31 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:system_stats:9505732c81570138bbdd2cb93202d986
+2026-02-05 19:08:31 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:118 - 💾 Cached result for system_stats (TTL: 30s)
+2026-02-05 19:08:31 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:08:47 - backend.src_v3.infrastructure.cache.redis_client - INFO - get:120 - ✅ Cache HIT: cache:system_stats:9505732c81570138bbdd2cb93202d986
+2026-02-05 19:08:47 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:109 - ✅ Cache HIT for system_stats
+2026-02-05 19:09:02 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:09:13 - backend.src_v3.infrastructure.http.api.middleware.error_handler - WARNING - validation_exception_handler:71 - Validation error: [{'type': 'missing', 'loc': ('query', 'teacher_id'), 'msg': 'Field required', 'input': None}]
+2026-02-05 19:09:20 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:113 - ❌ Cache MISS for teacher_courses - executing function
+2026-02-05 19:09:20 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:09:20 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            SELECT DISTINCT
+                c.course_id,
+                c.subject_code,
+                c.year,
+                c.semester
+            FROM courses c
+            JOIN enrollments e ON c.course_id = e.course_id
+            WHERE e.user_id = $1
+              AND e.role = 'TEACHER'
+              AND e.status = 'ACTIVE'
+            ORDER BY c.year DESC, c.semester DESC, c.subject_code ASC
+        
+2026-02-05 19:09:20 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00141s] ('dc105a66-edf9-4b64-a006-e1f5fd31f4ed',)
+2026-02-05 19:09:20 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:teacher_courses:8c088fcd7b3583e0677ae2247a623e8b
+2026-02-05 19:09:20 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:118 - 💾 Cached result for teacher_courses (TTL: 120s)
+2026-02-05 19:09:20 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:09:32 - backend.src_v3.infrastructure.cache.redis_client - INFO - get:120 - ✅ Cache HIT: cache:teacher_courses:8c088fcd7b3583e0677ae2247a623e8b
+2026-02-05 19:09:32 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:109 - ✅ Cache HIT for teacher_courses
+2026-02-05 19:09:41 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:188 - 📊 Fetching Redis statistics...
+2026-02-05 19:09:41 - backend.src_v3.infrastructure.http.api.v3.routers.system_router - INFO - redis_stats:194 - ✅ Redis stats retrieved: 38.46% hit rate
+2026-02-05 19:09:59 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:10:54 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:10:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:10:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00152s] ('74c0af0a-0c8f-44d8-b04a-2f7c3b813220', 'Lauti', 'lautaro@gmail.com', 'Lautaro Garcia', '$2b$12$7SBjDI5ZmNMbwtRbyHF5WOn1CyUxg2MCOSRMAspX0735CktZrX0ES', '["student"]', True)
+2026-02-05 19:10:54 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:10:57 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:10:59 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:11:56 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:12:00 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:12:13 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:12:13 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:12:13 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 84.36s ago] ('2a94553c-925b-470b-92a8-a18e77604029', 'dasda', 'oijasdjioasdj@gmail.com', 'asas', '$2b$12$Gq.Fp28yj5GGyaIwv2i5OedHnu1OFhXBUR823shw.w0fOJMdUFiT.', '["student"]', True)
+2026-02-05 19:12:13 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:12:51 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:12:57 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:13:52 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:13:55 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:13:56 - watchfiles.main - INFO - _log_changes:308 - 14 changes detected
+2026-02-05 19:13:57 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:13:58 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
+2026-02-05 19:13:58 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
+2026-02-05 19:13:59 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:14:03 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:14:03 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:14:03 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 201.4s ago] ('1220eb9b-1bf0-471a-abaa-acd3cb8e79c5', 'Pedrito', 'pedro@gmail.com', 'Pedro Avlavrez', '$2b$12$78pjn61FghnV9.90EmWiJuF9DWF.1w1Avxy2ms2nBAV2GANeAIMGq', '["student"]', True)
+2026-02-05 19:14:03 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:14:51 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:14:54 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:14:55 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 19:14:57 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:14:57 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:14:57 - watchfiles.main - INFO - _log_changes:308 - 7 changes detected
+2026-02-05 19:14:58 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:15:13 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:15:13 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:15:13 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 276.4s ago] ('a3f7b804-21b8-4fff-8ffe-324fee94f3f1', 'Docente', 'docente@gmail.com', 'Docente', '$2b$12$ir7q57SwOmtLTDX9ocwe1OkEee8fjEtPzzNjN4hW/FVRVZ4wZSYFC', '["teacher"]', True)
+2026-02-05 19:15:13 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:15:33 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:15:33 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:15:33 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 296.3s ago] ('ed30bf1b-6aa7-4809-9431-09b1ccb299ef', 'Juani', 'jisosarmientohermisito@gmail.com', 'Juan Ignacio', '$2b$12$Ppri.ZHuyFyTyC0aNRTtI.i5fdUdePcCwB.vk7eJS5X9V8ziN7Ag6', '["teacher"]', True)
+2026-02-05 19:15:33 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:15:44 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:15:44 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:15:44 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 309.2s ago] ('f7849a31-6f53-4a7c-b677-f35b84916659', 'Juani', 'juani@gmail.com', 'Juan Ignacio', '$2b$12$cjw2izQq72RFkdSQbKGet.uOKq3UL1AC5FJSrAOL/kYP.HvMxvNNG', '["teacher"]', True)
+2026-02-05 19:15:44 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:15:51 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:15:54 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:15:54 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 19:15:56 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:16:07 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:16:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:16:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 332.3s ago] ('7f63fcb3-8608-45d1-908d-50853d10f5a9', 'Juani', 'jj@gmail.com', 'Juani Sarmiento', '$2b$12$Mraz2AFZ3.QYx9TVgLQtK.BV/rDC36VyHNAdkoa4KyMb93BPVcKyW', '["teacher"]', True)
+2026-02-05 19:16:07 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:16:36 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:16:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7)
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:16:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 363.2s ago] ('11cdbb9d-c9a8-4b14-a7a7-f056b40ab34f', 'Carlitos', 'carlos@gmail.com', 'Carll', '$2b$12$n7VNLIOow6u8VEaEEm4aQ.wLcDxgo8GKtPuF9bS1GQLsVA8gRur36', '["teacher"]', True)
+2026-02-05 19:16:36 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:16:46 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:16:50 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:17:42 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:18:42 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:19:45 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:19:47 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 19:19:47 - backend.src_v3.infrastructure.http.app - INFO - lifespan:82 - Shutting down application...
+2026-02-05 19:19:47 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Disconnecting Redis...
+2026-02-05 19:19:47 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 19:19:47 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 19:19:48 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:19:48 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:19:48 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:19:48 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:19:48 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:19:48 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:19:48 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:19:48 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:19:48 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:19:48 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:19:48 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:19:48 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:19:48 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:19:48 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:19:50 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:19:50 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:19:54 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.app - INFO - lifespan:58 - Initializing database connection...
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - Initializing Redis cache...
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - ✅ Redis cache initialized successfully
+2026-02-05 19:19:53 - backend.src_v3.infrastructure.http.app - INFO - lifespan:72 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 1780, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 253, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 5, 'keyspace_misses': 8, 'hit_rate': '38.46%'}
+2026-02-05 19:20:40 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:20:42 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:20:42 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Shutting down application...
+2026-02-05 19:20:42 - backend.src_v3.infrastructure.http.app - INFO - lifespan:90 - Disconnecting Redis...
+2026-02-05 19:20:42 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 19:20:42 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 19:20:43 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:20:43 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:20:43 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:20:43 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:20:43 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:20:43 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:20:43 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:20:43 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:20:43 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:20:43 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:20:43 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:20:43 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:20:43 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:20:43 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:20:43 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:20:43 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 19:20:45 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:20:45 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:20:45 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:20:46 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - lifespan:58 - Initializing database connection...
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - Initializing Redis cache...
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - ✅ Redis cache initialized successfully
+2026-02-05 19:20:50 - backend.src_v3.infrastructure.http.app - INFO - lifespan:72 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 1837, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 263, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 5, 'keyspace_misses': 8, 'hit_rate': '38.46%'}
+2026-02-05 19:21:42 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:21:43 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:21:45 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:21:45 - watchfiles.main - INFO - _log_changes:308 - 12 changes detected
+2026-02-05 19:21:47 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:21:46 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
+2026-02-05 19:21:46 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
+2026-02-05 19:22:28 - backend.src_v3.infrastructure.http.app - INFO - lifespan:86 - Shutting down application...
+2026-02-05 19:22:28 - backend.src_v3.infrastructure.http.app - INFO - lifespan:90 - Disconnecting Redis...
+2026-02-05 19:22:28 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:79 - 🔌 Disconnecting from Redis...
+2026-02-05 19:22:28 - backend.src_v3.infrastructure.cache.redis_client - INFO - disconnect:82 - ✅ Redis disconnected successfully
+2026-02-05 19:22:29 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:22:29 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:22:29 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:22:29 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:22:29 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:22:29 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:22:29 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:22:29 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:22:29 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:22:29 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:22:29 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:22:29 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:22:29 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:22:29 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:22:32 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:22:32 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:22:38 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:22:38 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:22:38 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:22:38 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:22:38 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:22:38 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:22:38 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:22:38 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:22:38 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:22:38 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:22:38 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:22:38 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:22:38 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:22:38 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:22:38 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:22:41 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:22:41 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:74 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:58 - Initializing database connection...
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - Initializing Redis cache...
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - ✅ Redis cache initialized successfully
+2026-02-05 19:22:44 - backend.src_v3.infrastructure.http.app - INFO - lifespan:72 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 1951, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 281, 'instantaneous_ops_per_sec': 3, 'keyspace_hits': 5, 'keyspace_misses': 8, 'hit_rate': '38.46%'}
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT 1
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00181s] ()
+2026-02-05 19:23:12 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:23:37 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:23:37 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:23:37 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:23:37 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:23:37 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:23:37 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:23:37 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:23:38 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:23:38 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:23:38 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:23:38 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:23:38 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:23:38 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:23:38 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:23:39 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:23:39 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:75 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:23:44 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:23:44 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:23:44 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:23:44 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:23:44 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:23:44 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:23:44 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:23:44 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:23:44 - root - INFO - setup_logging:116 - ============================================================
+2026-02-05 19:23:44 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
+2026-02-05 19:23:44 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
+2026-02-05 19:23:44 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
+2026-02-05 19:23:44 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
+2026-02-05 19:23:44 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
+2026-02-05 19:23:44 - root - INFO - setup_logging:122 - ============================================================
+2026-02-05 19:23:47 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:23:47 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:75 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.middleware.rate_limiter - INFO - setup_rate_limiting:190 - ⚠️ Rate limiting disabled (development mode)
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.middleware.security_headers - INFO - setup_security_headers:75 - ✅ Security headers enabled (HSTS: False)
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - create_app:225 - Application created successfully
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - lifespan:57 - Starting AI-Native MVP V3 (Clean Architecture)
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - lifespan:58 - Initializing database connection...
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - lifespan:61 - Initializing Redis cache...
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.cache.redis_client - INFO - __init__:40 - 🔧 Redis cache initialized with URL: redis://redis:6379/0
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:45 - 🔌 Attempting to connect to Redis...
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:59 - ✅ Redis connection established successfully
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:63 - 📊 Redis version: 7.4.7
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:64 - 📊 Connected clients: 1
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.cache.redis_client - INFO - connect:65 - 📊 Used memory: 1.09M
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - ✅ Redis cache initialized successfully
+2026-02-05 19:23:52 - backend.src_v3.infrastructure.http.app - INFO - lifespan:72 - 📊 Redis Stats: {'connected': True, 'version': '7.4.7', 'uptime_seconds': 2019, 'connected_clients': 1, 'used_memory_human': '1.09M', 'used_memory_peak_human': '1.11M', 'total_commands_processed': 294, 'instantaneous_ops_per_sec': 0, 'keyspace_hits': 5, 'keyspace_misses': 8, 'hit_rate': '38.46%'}
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select pg_catalog.version()
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - select current_schema()
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - show standard_conforming_strings
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [raw sql] ()
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT 1
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00139s] ()
+2026-02-05 19:24:36 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
             SELECT id, username, email, full_name, roles, hashed_password, is_active
             FROM users
             WHERE email = $1
             
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00137s] ('docente@ainative.edu',)
-2026-02-03 13:26:49 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:50 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:50 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00244s] ('testuser123@example.com',)
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT id FROM users WHERE username = $1
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00179s] ('testuser123',)
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active, created_at, updated_at)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7, NOW(), NOW())
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00256s] ('991b058f-a810-4514-a71d-96419743a6a3', 'testuser123', 'testuser123@example.com', 'Test User', '$2b$12$gklFwFr3hZgZ7koLlvVk..LVvByis5RyyqELqw/iPCNXtnWbx/oPy', '["student"]', True)
+2026-02-05 19:25:32 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:25:32 - backend.src_v3.infrastructure.persistence.repositories.user_repository - INFO - create_user:155 - User created successfully: testuser123 (ID: 991b058f-a810-4514-a71d-96419743a6a3)
+2026-02-05 19:25:32 - backend.src_v3.infrastructure.http.api.v3.routers.auth_router - INFO - register:271 - User registered successfully: testuser123 (testuser123@example.com)
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            SELECT id, username, email, full_name, roles, hashed_password, is_active
+            FROM users
+            WHERE email = $1
+            
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 8.236s ago] ('test456@example.com',)
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT id FROM users WHERE username = $1
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 8.231s ago] ('testuser456',)
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            INSERT INTO users (id, username, email, full_name, hashed_password, roles, is_active, created_at, updated_at)
+            VALUES ($1, $2, $3, $4, $5, CAST($6 AS jsonb), $7, NOW(), NOW())
+            RETURNING id, username, email, full_name, roles, hashed_password, is_active
+            
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 8.23s ago] ('3cad85fc-5fb7-4235-88e7-99c2473c5f4c', 'testuser456', 'test456@example.com', 'Test User 456', '$2b$12$zfQ0XzFp7RBgyki98WHM4e.hpbpoKqWEdAdaKBIh7IIT9/2JiUYWe', '["student"]', True)
+2026-02-05 19:25:38 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:25:38 - backend.src_v3.infrastructure.persistence.repositories.user_repository - INFO - create_user:155 - User created successfully: testuser456 (ID: 3cad85fc-5fb7-4235-88e7-99c2473c5f4c)
+2026-02-05 19:25:38 - backend.src_v3.infrastructure.http.api.v3.routers.auth_router - INFO - register:271 - User registered successfully: testuser456 (test456@example.com)
+2026-02-05 19:25:45 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:25:45 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            SELECT id, username, email, full_name, roles, hashed_password, is_active
+            FROM users
+            WHERE email = $1
+            
+2026-02-05 19:25:45 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 15.01s ago] ('test789@example.com',)
+2026-02-05 19:25:45 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT id FROM users WHERE username = $1
+2026-02-05 19:25:45 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 15s ago] ('testuser456',)
+2026-02-05 19:25:45 - backend.src_v3.infrastructure.persistence.repositories.user_repository - WARNING - create_user:129 - Attempt to create user with existing username: testuser456
+2026-02-05 19:25:45 - backend.src_v3.infrastructure.http.api.v3.routers.auth_router - WARNING - register:294 - Registration validation error: Username already exists
+2026-02-05 19:25:45 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:25:52 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:25:53 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:26:12 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:26:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            SELECT id, username, email, full_name, roles, hashed_password, is_active
+            FROM users
+            WHERE email = $1
+            
+2026-02-05 19:26:12 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 43.74s ago] ('juanisarmientoomartinez@gmail.com',)
+2026-02-05 19:26:12 - backend.src_v3.infrastructure.persistence.repositories.user_repository - WARNING - create_user:120 - Attempt to create user with existing email: juanisarmientoomartinez@gmail.com
+2026-02-05 19:26:12 - backend.src_v3.infrastructure.http.api.v3.routers.auth_router - WARNING - register:294 - Registration validation error: Email already registered
+2026-02-05 19:26:12 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
+2026-02-05 19:26:44 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:26:47 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:26:47 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
+2026-02-05 19:26:49 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:26:50 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:27:47 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:28:40 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:29:42 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:29:42 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:29:42 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:29:44 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:30:41 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:30:42 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:31:43 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:32:56 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:34:20 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:35:31 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:35:57 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:35:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            SELECT id, username, email, full_name, roles, hashed_password, is_active
+            FROM users
+            WHERE email = $1
+            
+2026-02-05 19:35:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 667.4s ago] ('docente@ainative.edu',)
+2026-02-05 19:35:57 - backend.src_v3.infrastructure.http.api.v3.routers.auth_router - INFO - login:155 - Successful login for user: docente@ainative.edu
+2026-02-05 19:35:57 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:35:58 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:113 - ❌ Cache MISS for teacher_modules - executing function
+2026-02-05 19:35:58 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:35:58 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
             SELECT 
                 m.module_id,
                 m.title as name,
@@ -181,10 +1043,29 @@
                      c.subject_code, c.year, c.semester, m.created_at
             ORDER BY m.created_at DESC
         
-2026-02-03 13:26:50 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00209s] ('1be823c5-22aa-4b70-b06d-f7f3ecad978e',)
-2026-02-03 13:26:50 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+2026-02-05 19:35:58 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00472s] ('1be823c5-22aa-4b70-b06d-f7f3ecad978e',)
+2026-02-05 19:35:58 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:teacher_modules:4d7d8be188160bb75e8ee994f0e39637
+2026-02-05 19:35:58 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:118 - 💾 Cached result for teacher_modules (TTL: 90s)
+2026-02-05 19:35:58 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:36:00 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:113 - ❌ Cache MISS for teacher_students - executing function
+2026-02-05 19:36:00 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:36:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+            SELECT 
+                u.id as user_id,
+                u.username,
+                u.email,
+                u.full_name
+            FROM users u
+            WHERE u.roles::jsonb ? 'student'
+              AND u.is_active = true
+            ORDER BY u.full_name ASC, u.username ASC
+        
+2026-02-05 19:36:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00180s] ()
+2026-02-05 19:36:00 - backend.src_v3.infrastructure.cache.redis_client - INFO - set:175 - ✅ Cache SET successful: cache:teacher_students:72e75ce412d3f5d58f9e140dc87db7b5
+2026-02-05 19:36:00 - backend.src_v3.infrastructure.cache.decorators - INFO - wrapper:118 - 💾 Cached result for teacher_students (TTL: 60s)
+2026-02-05 19:36:00 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
             SELECT 
                 e.enrollment_id,
                 e.user_id,
@@ -197,10 +1078,10 @@
             JOIN users u ON e.user_id = u.id
             WHERE e.module_id = $1
          AND e.status = $2 ORDER BY e.enrolled_at DESC
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00395s] ('52738ad0-80d2-47de-8d56-dcd266da25e3', 'ACTIVE')
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00346s] ('150ff713-e5fd-4ae2-bfe0-23ae281c123e', 'ACTIVE')
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
             SELECT 
                 e.enrollment_id,
                 e.user_id,
@@ -213,10 +1094,10 @@
             JOIN users u ON e.user_id = u.id
             WHERE e.module_id = $1
          AND e.status = $2 ORDER BY e.enrolled_at DESC
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.04696s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3', 'ACTIVE')
-2026-02-03 13:26:51 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.06628s ago] ('150ff713-e5fd-4ae2-bfe0-23ae281c123e', 'ACTIVE')
+2026-02-05 19:36:07 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
             SELECT 
                 a.activity_id,
                 a.title,
@@ -234,12 +1115,12 @@
             GROUP BY a.activity_id
             ORDER BY a.order_index ASC, a.created_at DESC
         
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00304s] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:52 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2523 - 📊 Module 52738ad0-80d2-47de-8d56-dcd266da25e3 - Found 1 activities
-2026-02-03 13:26:52 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2540 - 📊 Returning 1 activities
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00162s] ('150ff713-e5fd-4ae2-bfe0-23ae281c123e',)
+2026-02-05 19:36:08 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2588 - 📊 Module 150ff713-e5fd-4ae2-bfe0-23ae281c123e - Found 1 activities
+2026-02-05 19:36:08 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2605 - 📊 Returning 1 activities
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
             SELECT 
                 a.activity_id,
                 a.title,
@@ -257,580 +1138,14 @@
             GROUP BY a.activity_id
             ORDER BY a.order_index ASC, a.created_at DESC
         
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.02999s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:52 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2523 - 📊 Module 52738ad0-80d2-47de-8d56-dcd266da25e3 - Found 1 activities
-2026-02-03 13:26:52 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2540 - 📊 Returning 1 activities
-2026-02-03 13:26:52 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
-                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
-                (SELECT COUNT(DISTINCT s.student_id) 
-                 FROM submissions s 
-                 JOIN activities a ON s.activity_id = a.activity_id 
-                 WHERE a.module_id = $1) as students_with_submissions,
-                (SELECT COUNT(*) 
-                 FROM submissions s 
-                 JOIN activities a ON s.activity_id = a.activity_id 
-                 WHERE a.module_id = $1) as total_submissions,
-                (SELECT AVG(s.final_grade) 
-                 FROM submissions s 
-                 JOIN activities a ON s.activity_id = a.activity_id 
-                 WHERE a.module_id = $1 AND s.status = 'graded') as average_grade
-        
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00309s] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                (SELECT COUNT(*) FROM enrollments WHERE module_id = $1 AND status = 'ACTIVE') as active_students,
-                (SELECT COUNT(*) FROM activities WHERE module_id = $1) as total_activities,
-                (SELECT COUNT(DISTINCT s.student_id) 
-                 FROM submissions s 
-                 JOIN activities a ON s.activity_id = a.activity_id 
-                 WHERE a.module_id = $1) as students_with_submissions,
-                (SELECT COUNT(*) 
-                 FROM submissions s 
-                 JOIN activities a ON s.activity_id = a.activity_id 
-                 WHERE a.module_id = $1) as total_submissions,
-                (SELECT AVG(s.final_grade) 
-                 FROM submissions s 
-                 JOIN activities a ON s.activity_id = a.activity_id 
-                 WHERE a.module_id = $1 AND s.status = 'graded') as average_grade
-        
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.01901s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:53 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:53 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                a.activity_id,
-                a.title,
-                a.instructions,
-                a.difficulty,
-                a.estimated_duration_minutes,
-                a.order_index,
-                a.status,
-                a.created_at,
-                COUNT(DISTINCT s.submission_id) as total_submissions,
-                COUNT(DISTINCT CASE WHEN s.status = 'graded' THEN s.submission_id END) as graded_submissions
-            FROM activities a
-            LEFT JOIN submissions s ON a.activity_id = s.activity_id
-            WHERE a.module_id = $1
-            GROUP BY a.activity_id
-            ORDER BY a.order_index ASC, a.created_at DESC
-        
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 2.431s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:54 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2523 - 📊 Module 52738ad0-80d2-47de-8d56-dcd266da25e3 - Found 1 activities
-2026-02-03 13:26:54 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2540 - 📊 Returning 1 activities
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                a.activity_id,
-                a.title,
-                a.instructions,
-                a.difficulty,
-                a.estimated_duration_minutes,
-                a.order_index,
-                a.status,
-                a.created_at,
-                COUNT(DISTINCT s.submission_id) as total_submissions,
-                COUNT(DISTINCT CASE WHEN s.status = 'graded' THEN s.submission_id END) as graded_submissions
-            FROM activities a
-            LEFT JOIN submissions s ON a.activity_id = s.activity_id
-            WHERE a.module_id = $1
-            GROUP BY a.activity_id
-            ORDER BY a.order_index ASC, a.created_at DESC
-        
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 2.446s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:54 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2523 - 📊 Module 52738ad0-80d2-47de-8d56-dcd266da25e3 - Found 1 activities
-2026-02-03 13:26:54 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2540 - 📊 Returning 1 activities
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                e.enrollment_id,
-                e.user_id,
-                e.role,
-                e.status,
-                e.enrolled_at,
-                u.full_name,
-                u.email
-            FROM enrollments e
-            JOIN users u ON e.user_id = u.id
-            WHERE e.module_id = $1
-         AND e.status = $2 ORDER BY e.enrolled_at DESC
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 3.876s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3', 'ACTIVE')
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                e.enrollment_id,
-                e.user_id,
-                e.role,
-                e.status,
-                e.enrolled_at,
-                u.full_name,
-                u.email
-            FROM enrollments e
-            JOIN users u ON e.user_id = u.id
-            WHERE e.module_id = $1
-         AND e.status = $2 ORDER BY e.enrolled_at DESC
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 3.886s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3', 'ACTIVE')
-2026-02-03 13:26:54 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:54 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                a.activity_id,
-                a.title,
-                a.instructions,
-                a.difficulty,
-                a.estimated_duration_minutes,
-                a.order_index,
-                a.status,
-                a.created_at,
-                COUNT(DISTINCT s.submission_id) as total_submissions,
-                COUNT(DISTINCT CASE WHEN s.status = 'graded' THEN s.submission_id END) as graded_submissions
-            FROM activities a
-            LEFT JOIN submissions s ON a.activity_id = s.activity_id
-            WHERE a.module_id = $1
-            GROUP BY a.activity_id
-            ORDER BY a.order_index ASC, a.created_at DESC
-        
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 4.007s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:55 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2523 - 📊 Module 52738ad0-80d2-47de-8d56-dcd266da25e3 - Found 1 activities
-2026-02-03 13:26:55 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2540 - 📊 Returning 1 activities
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                a.activity_id,
-                a.title,
-                a.instructions,
-                a.difficulty,
-                a.estimated_duration_minutes,
-                a.order_index,
-                a.status,
-                a.created_at,
-                COUNT(DISTINCT s.submission_id) as total_submissions,
-                COUNT(DISTINCT CASE WHEN s.status = 'graded' THEN s.submission_id END) as graded_submissions
-            FROM activities a
-            LEFT JOIN submissions s ON a.activity_id = s.activity_id
-            WHERE a.module_id = $1
-            GROUP BY a.activity_id
-            ORDER BY a.order_index ASC, a.created_at DESC
-        
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 4.02s ago] ('52738ad0-80d2-47de-8d56-dcd266da25e3',)
-2026-02-03 13:26:55 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2523 - 📊 Module 52738ad0-80d2-47de-8d56-dcd266da25e3 - Found 1 activities
-2026-02-03 13:26:55 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2540 - 📊 Returning 1 activities
-2026-02-03 13:26:55 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:55 - watchfiles.main - INFO - _log_changes:308 - 9 changes detected
-2026-02-03 13:26:56 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
-2026-02-03 13:26:56 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT activity_id, course_id, teacher_id, title, subject, instructions, status, policies, created_at
-            FROM activities
-            WHERE activity_id = $1
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00325s] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT DISTINCT
-                    u.id as student_id,
-                    u.email,
-                    u.full_name,
-                    COUNT(DISTINCT ex.exercise_id) as total_exercises,
-                    COUNT(DISTINCT CASE WHEN att.passed = true THEN ex.exercise_id END) as submitted_exercises,
-                    COUNT(DISTINCT CASE WHEN att.passed = true THEN ex.exercise_id END) as graded_exercises,
-                    AVG(CASE WHEN att.passed = true THEN 10 ELSE 5 END) as avg_score,
-                    MAX(att.submitted_at) as last_submission
-                FROM users u
-                INNER JOIN sessions_v2 s ON s.user_id = u.id
-                CROSS JOIN exercises_v2 ex
-                LEFT JOIN exercise_attempts_v2 att ON att.exercise_id = ex.exercise_id AND att.user_id = u.id
-                WHERE s.activity_id = $1
-                AND u.roles @> '["student"]'::jsonb
-                GROUP BY u.id, u.email, u.full_name
-                ORDER BY u.full_name
-            
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00278s] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT activities.activity_id, activities.title, activities.subject, activities.unit_id, activities.teacher_id, activities.course_id, activities.module_id, activities.order_index, activities.instructions, activities.status, activities.difficulty_level, activities.policies, activities.start_date, activities.end_date, activities.created_at, activities.deleted_at 
-FROM activities 
-WHERE activities.activity_id = $1::VARCHAR
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00396s] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT activity_id, course_id, teacher_id, title, subject, instructions, status, policies, created_at
-            FROM activities
-            WHERE activity_id = $1
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.09192s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT activity_id, course_id, teacher_id, title, subject, instructions, status, policies, created_at
-            FROM activities
-            WHERE activity_id = $1
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1033s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT exercise_id, title, description, difficulty, language, 
-                       mission_markdown, starter_code, solution_code, test_cases
-                FROM exercises_v2
-                WHERE activity_id = $1
-                ORDER BY created_at ASC
-                
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00268s] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT sessions_v2.session_id, sessions_v2.user_id, sessions_v2.activity_id, sessions_v2.course_id, sessions_v2.status, sessions_v2.mode, sessions_v2.learning_objective, sessions_v2.cognitive_status, sessions_v2.session_metrics, sessions_v2.start_time, sessions_v2.end_time, sessions_v2.created_at, users.id, users.email, users.username, users.hashed_password, users.full_name, users.roles, users.is_active, users.created_at AS created_at_1, users.deleted_at 
-FROM sessions_v2 LEFT OUTER JOIN users ON sessions_v2.user_id = users.id 
-WHERE sessions_v2.activity_id = $1::VARCHAR ORDER BY users.full_name, users.username
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00243s] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT DISTINCT s.student_id, u.full_name, u.email
-            FROM submissions s
-            LEFT JOIN users u ON s.student_id = u.id
-            WHERE s.activity_id = $1
-              AND NOT EXISTS (
-                  SELECT 1 FROM sessions_v2 sv
-                  WHERE sv.user_id = s.student_id 
-                    AND sv.activity_id = s.activity_id
-              )
-            ORDER BY u.full_name, u.email
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00212s] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT activity_id, course_id, teacher_id, title, subject, instructions, status, policies, created_at
-            FROM activities
-            WHERE activity_id = $1
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1477s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT activity_id, course_id, teacher_id, title, subject, instructions, status, policies, created_at
-            FROM activities
-            WHERE activity_id = $1
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1612s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT exercise_id, title, description, difficulty, language, 
-                       mission_markdown, starter_code, solution_code, test_cases
-                FROM exercises_v2
-                WHERE activity_id = $1
-                ORDER BY created_at ASC
-                
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.06117s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT 
-                    ea.exercise_id,
-                    e.title,
-                    ea.grade,
-                    ea.ai_feedback
-                FROM exercise_attempts_v2 ea
-                JOIN exercises_v2 e ON ea.exercise_id = e.exercise_id
-                WHERE ea.session_id = $1 
-                  AND e.activity_id = $2
-                  AND ea.attempt_id = (
-                      SELECT attempt_id FROM exercise_attempts_v2 
-                      WHERE exercise_id = ea.exercise_id AND session_id = $1
-                      ORDER BY submitted_at DESC LIMIT 1
-                  )
-                ORDER BY e.unit_number
-            
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00243s] ('4281b589-3004-4798-b1cc-3d8199e48d9a', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT activity_id, course_id, teacher_id, title, subject, instructions, status, policies, created_at
-            FROM activities
-            WHERE activity_id = $1
-        
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1992s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT DISTINCT
-                    u.id as student_id,
-                    u.email,
-                    u.full_name,
-                    COUNT(DISTINCT ex.exercise_id) as total_exercises,
-                    COUNT(DISTINCT CASE WHEN att.passed = true THEN ex.exercise_id END) as submitted_exercises,
-                    COUNT(DISTINCT CASE WHEN att.passed = true THEN ex.exercise_id END) as graded_exercises,
-                    AVG(CASE WHEN att.passed = true THEN 10 ELSE 5 END) as avg_score,
-                    MAX(att.submitted_at) as last_submission
-                FROM users u
-                INNER JOIN sessions_v2 s ON s.user_id = u.id
-                CROSS JOIN exercises_v2 ex
-                LEFT JOIN exercise_attempts_v2 att ON att.exercise_id = ex.exercise_id AND att.user_id = u.id
-                WHERE s.activity_id = $1
-                AND u.roles @> '["student"]'::jsonb
-                GROUP BY u.id, u.email, u.full_name
-                ORDER BY u.full_name
-            
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1641s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:56 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:310 - Student 91880ff2-3d5b-4ee9-acb5-61dafccf74b6 - Found 0 exercises, 0 graded, total: 0
-2026-02-03 13:26:56 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:316 - Grade from session_metrics: None
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                    SELECT final_grade 
-                    FROM submissions 
-                    WHERE student_id = $1 AND activity_id = $2
-                    ORDER BY created_at DESC LIMIT 1
-                
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00250s] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT risk_level, risk_dimension, description, recommendations
-                FROM risks_v2
-                WHERE session_id = $1
-                ORDER BY created_at DESC LIMIT 1
-            
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00186s] ('4281b589-3004-4798-b1cc-3d8199e48d9a',)
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT 
-                    ea.exercise_id,
-                    e.title,
-                    ea.grade,
-                    ea.ai_feedback
-                FROM exercise_attempts_v2 ea
-                JOIN exercises_v2 e ON ea.exercise_id = e.exercise_id
-                WHERE ea.session_id = $1 
-                  AND e.activity_id = $2
-                  AND ea.attempt_id = (
-                      SELECT attempt_id FROM exercise_attempts_v2 
-                      WHERE exercise_id = ea.exercise_id AND session_id = $1
-                      ORDER BY submitted_at DESC LIMIT 1
-                  )
-                ORDER BY e.unit_number
-            
-2026-02-03 13:26:56 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.0586s ago] ('25d34034-7275-423d-ad25-347c5b99e39d', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:56 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:310 - Student 91880ff2-3d5b-4ee9-acb5-61dafccf74b6 - Found 0 exercises, 0 graded, total: 0
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:316 - Grade from session_metrics: None
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                    SELECT final_grade 
-                    FROM submissions 
-                    WHERE student_id = $1 AND activity_id = $2
-                    ORDER BY created_at DESC LIMIT 1
-                
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.03068s ago] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _connection_rollback_impl:2702 - ROLLBACK
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT risk_level, risk_dimension, description, recommendations
-                FROM risks_v2
-                WHERE session_id = $1
-                ORDER BY created_at DESC LIMIT 1
-            
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.02616s ago] ('25d34034-7275-423d-ad25-347c5b99e39d',)
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:535 - Retrieved 2 total analytics (sessions + submissions) for activity f31204ea-8711-408b-8bdf-46087f7bef37
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT activities.activity_id, activities.title, activities.subject, activities.unit_id, activities.teacher_id, activities.course_id, activities.module_id, activities.order_index, activities.instructions, activities.status, activities.difficulty_level, activities.policies, activities.start_date, activities.end_date, activities.created_at, activities.deleted_at 
-FROM activities 
-WHERE activities.activity_id = $1::VARCHAR
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1941s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - SELECT sessions_v2.session_id, sessions_v2.user_id, sessions_v2.activity_id, sessions_v2.course_id, sessions_v2.status, sessions_v2.mode, sessions_v2.learning_objective, sessions_v2.cognitive_status, sessions_v2.session_metrics, sessions_v2.start_time, sessions_v2.end_time, sessions_v2.created_at, users.id, users.email, users.username, users.hashed_password, users.full_name, users.roles, users.is_active, users.created_at AS created_at_1, users.deleted_at 
-FROM sessions_v2 LEFT OUTER JOIN users ON sessions_v2.user_id = users.id 
-WHERE sessions_v2.activity_id = $1::VARCHAR ORDER BY users.full_name, users.username
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1631s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT DISTINCT s.student_id, u.full_name, u.email
-            FROM submissions s
-            LEFT JOIN users u ON s.student_id = u.id
-            WHERE s.activity_id = $1
-              AND NOT EXISTS (
-                  SELECT 1 FROM sessions_v2 sv
-                  WHERE sv.user_id = s.student_id 
-                    AND sv.activity_id = s.activity_id
-              )
-            ORDER BY u.full_name, u.email
-        
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1491s ago] ('f31204ea-8711-408b-8bdf-46087f7bef37',)
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT 
-                    ea.exercise_id,
-                    e.title,
-                    ea.grade,
-                    ea.ai_feedback
-                FROM exercise_attempts_v2 ea
-                JOIN exercises_v2 e ON ea.exercise_id = e.exercise_id
-                WHERE ea.session_id = $1 
-                  AND e.activity_id = $2
-                  AND ea.attempt_id = (
-                      SELECT attempt_id FROM exercise_attempts_v2 
-                      WHERE exercise_id = ea.exercise_id AND session_id = $1
-                      ORDER BY submitted_at DESC LIMIT 1
-                  )
-                ORDER BY e.unit_number
-            
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1016s ago] ('4281b589-3004-4798-b1cc-3d8199e48d9a', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:310 - Student 91880ff2-3d5b-4ee9-acb5-61dafccf74b6 - Found 0 exercises, 0 graded, total: 0
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:316 - Grade from session_metrics: None
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                    SELECT final_grade 
-                    FROM submissions 
-                    WHERE student_id = $1 AND activity_id = $2
-                    ORDER BY created_at DESC LIMIT 1
-                
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.07403s ago] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT risk_level, risk_dimension, description, recommendations
-                FROM risks_v2
-                WHERE session_id = $1
-                ORDER BY created_at DESC LIMIT 1
-            
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.06712s ago] ('4281b589-3004-4798-b1cc-3d8199e48d9a',)
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT 
-                    ea.exercise_id,
-                    e.title,
-                    ea.grade,
-                    ea.ai_feedback
-                FROM exercise_attempts_v2 ea
-                JOIN exercises_v2 e ON ea.exercise_id = e.exercise_id
-                WHERE ea.session_id = $1 
-                  AND e.activity_id = $2
-                  AND ea.attempt_id = (
-                      SELECT attempt_id FROM exercise_attempts_v2 
-                      WHERE exercise_id = ea.exercise_id AND session_id = $1
-                      ORDER BY submitted_at DESC LIMIT 1
-                  )
-                ORDER BY e.unit_number
-            
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.1193s ago] ('25d34034-7275-423d-ad25-347c5b99e39d', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:310 - Student 91880ff2-3d5b-4ee9-acb5-61dafccf74b6 - Found 0 exercises, 0 graded, total: 0
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:316 - Grade from session_metrics: None
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                    SELECT final_grade 
-                    FROM submissions 
-                    WHERE student_id = $1 AND activity_id = $2
-                    ORDER BY created_at DESC LIMIT 1
-                
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.08989s ago] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT risk_level, risk_dimension, description, recommendations
-                FROM risks_v2
-                WHERE session_id = $1
-                ORDER BY created_at DESC LIMIT 1
-            
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.08251s ago] ('25d34034-7275-423d-ad25-347c5b99e39d',)
-2026-02-03 13:26:57 - backend.src_v3.infrastructure.http.api.v3.routers.analytics_router - INFO - get_activity_submissions_analytics:535 - Retrieved 2 total analytics (sessions + submissions) for activity f31204ea-8711-408b-8bdf-46087f7bef37
-2026-02-03 13:26:57 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _connection_begin_impl:2699 - BEGIN (implicit)
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT id, full_name, username, email FROM users WHERE id = $1
-        
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00162s] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6',)
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-            SELECT 
-                sv.session_id,
-                sv.activity_id,
-                a.title as activity_title,
-                sv.status,
-                sv.cognitive_status,
-                sv.session_metrics,
-                sv.start_time,
-                sv.end_time,
-                sv.user_id
-            FROM sessions_v2 sv
-            LEFT JOIN activities a ON sv.activity_id = a.activity_id
-            WHERE sv.user_id = $1
-         AND sv.activity_id = $2 ORDER BY sv.start_time DESC LIMIT 1
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00150s] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT 
-                    timestamp,
-                    interaction_type,
-                    interactional_data,
-                    cognitive_reasoning,
-                    COALESCE(ai_involvement, 0) as frustration,
-                    COALESCE(ai_involvement, 0.5) as understanding
-                FROM cognitive_traces_v2
-                WHERE session_id = $1
-                ORDER BY timestamp
-            
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00167s] ('4281b589-3004-4798-b1cc-3d8199e48d9a',)
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT DISTINCT ON (ea.exercise_id)
-                    ea.exercise_id,
-                    e.title,
-                    CASE WHEN ea.passed THEN 'passed' ELSE 'failed' END as status,
-                    ea.code_submitted,
-                    ea.ai_feedback,
-                    ea.grade,
-                    ea.submitted_at
-                FROM exercise_attempts_v2 ea
-                JOIN exercises_v2 e ON ea.exercise_id = e.exercise_id
-                WHERE ea.session_id = $1 AND e.activity_id = $2
-                ORDER BY ea.exercise_id, ea.submitted_at DESC
-            
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00146s] ('4281b589-3004-4798-b1cc-3d8199e48d9a', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT final_grade, ai_feedback, status
-                FROM submissions
-                WHERE student_id = $1 AND activity_id = $2
-                ORDER BY submitted_at DESC LIMIT 1
-            
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00178s] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT final_grade, test_results
-                FROM submissions
-                WHERE student_id = $1 AND activity_id = $2
-                ORDER BY created_at DESC LIMIT 1
-            
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [generated in 0.00130s] ('91880ff2-3d5b-4ee9-acb5-61dafccf74b6', 'f31204ea-8711-408b-8bdf-46087f7bef37')
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - 
-                SELECT risk_level, risk_dimension, description, recommendations
-                FROM risks_v2
-                WHERE session_id = $1
-                ORDER BY created_at DESC LIMIT 1
-            
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 3.994s ago] ('4281b589-3004-4798-b1cc-3d8199e48d9a',)
-2026-02-03 13:27:00 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
-2026-02-03 13:27:24 - watchfiles.main - INFO - _log_changes:308 - 8 changes detected
-2026-02-03 13:27:24 - backend.src_v3.infrastructure.http.app - INFO - lifespan:65 - Shutting down application...
-2026-02-03 13:27:25 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:27:25 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:27:25 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:27:25 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:27:25 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:27:25 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:27:25 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:27:25 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:27:25 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:27:25 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:27:25 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:27:25 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:27:25 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:27:25 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:27:26 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:27:26 - watchfiles.main - INFO - _log_changes:308 - 5 changes detected
-2026-02-03 13:27:26 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:27:26 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:27:26 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:27:26 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:27:26 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:27:26 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:27:26 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:27:26 - root - INFO - setup_logging:116 - ============================================================
-2026-02-03 13:27:26 - root - INFO - setup_logging:117 - 🚀 AI-Native MVP V3 - Logging initialized
-2026-02-03 13:27:26 - root - INFO - setup_logging:118 - 📝 Log Level: INFO
-2026-02-03 13:27:26 - root - INFO - setup_logging:119 - 📁 Log Directory: /app/logs
-2026-02-03 13:27:26 - root - INFO - setup_logging:120 - 💾 File Logging: ✅ Enabled
-2026-02-03 13:27:26 - root - INFO - setup_logging:121 - 🔔 Sentry Alerts: ❌ Disabled
-2026-02-03 13:27:26 - root - INFO - setup_logging:122 - ============================================================
-2026-02-03 13:27:26 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
-2026-02-03 13:27:27 - watchfiles.main - INFO - _log_changes:308 - 15 changes detected
-2026-02-03 13:27:27 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
-2026-02-03 13:27:28 - watchfiles.main - INFO - _log_changes:308 - 5 changes detected
-2026-02-03 13:27:29 - watchfiles.main - INFO - _log_changes:308 - 4 changes detected
-2026-02-03 13:27:32 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:27:32 - backend.src_v3.infrastructure.http.app - INFO - create_app:175 - Application created successfully
-2026-02-03 13:27:32 - backend.src_v3.infrastructure.http.app - INFO - lifespan:53 - Starting AI-Native MVP V3 (Clean Architecture)
-2026-02-03 13:27:32 - backend.src_v3.infrastructure.http.app - INFO - lifespan:54 - Initializing database connection...
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _execute_context:1843 - [cached since 0.03922s ago] ('150ff713-e5fd-4ae2-bfe0-23ae281c123e',)
+2026-02-05 19:36:08 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2588 - 📊 Module 150ff713-e5fd-4ae2-bfe0-23ae281c123e - Found 1 activities
+2026-02-05 19:36:08 - backend.src_v3.infrastructure.http.api.v3.routers.teacher_router - INFO - get_module_activities:2605 - 📊 Returning 1 activities
+2026-02-05 19:36:08 - sqlalchemy.engine.Engine - INFO - _connection_commit_impl:2705 - COMMIT
+2026-02-05 19:36:28 - watchfiles.main - INFO - _log_changes:308 - 2 changes detected
+2026-02-05 19:36:31 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:36:32 - watchfiles.main - INFO - _log_changes:308 - 20 changes detected
+2026-02-05 19:36:34 - watchfiles.main - INFO - _log_changes:308 - 3 changes detected
+2026-02-05 19:36:34 - watchfiles.main - INFO - _log_changes:308 - 1 change detected
+2026-02-05 19:36:34 - watchfiles.main - INFO - _log_changes:308 - 9 changes detected
+2026-02-05 19:36:35 - watchfiles.main - INFO - _log_changes:308 - 5 changes detected

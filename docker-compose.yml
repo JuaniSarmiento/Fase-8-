@@ -47,6 +47,28 @@ services:
           cpus: '0.25'
           memory: 256M
 
+  redis:
+    image: redis:7-alpine
+    container_name: ai_native_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
   backend:
     build:
       context: .
@@ -62,7 +84,7 @@ services:
           memory: 512M
     environment:
       - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/ai_native
-      - REDIS_URL=redis://localhost:6379/0
+      - REDIS_URL=redis://redis:6379/0
       - APP_NAME=AI-Native MVP V3
       - APP_VERSION=3.0.0
       - DEBUG=True
@@ -97,11 +119,14 @@ services:
         condition: service_healthy
       chromadb:
         condition: service_started
+      redis:
+        condition: service_healthy
     volumes:
       - .:/app
       - uploads_data:/app/uploads
 
 volumes:
+  redis_data:
   postgres_data:
   chroma_data:
   uploads_data:

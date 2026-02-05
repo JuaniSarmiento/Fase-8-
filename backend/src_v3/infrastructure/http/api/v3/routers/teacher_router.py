@@ -10,6 +10,7 @@ from fastapi import (
     UploadFile,
     File,
     BackgroundTasks,
+    Request,
 )
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any, Dict
@@ -17,6 +18,8 @@ from pathlib import Path
 import os
 import logging
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from backend.src_v3.infrastructure.cache.decorators import cached
 
 from backend.src_v3.application.teacher.use_cases import (
     CreateActivityUseCase,
@@ -55,11 +58,14 @@ router = APIRouter(prefix="/teacher", tags=["Teacher"])
 # ==================== COURSE ACCESS ====================
 
 @router.get("/courses")
+@cached(ttl=120, key_prefix="teacher_courses")  # Cache for 2 minutes
 async def get_teacher_courses(
+    request: Request,
     teacher_id: str,
     db: AsyncSession = Depends(get_db_session)
 ):
     """
+    Get all courses where the user is a teacher.
     Get all courses where the user is enrolled as a teacher.
     
     Returns course info for module management.
@@ -103,7 +109,9 @@ async def get_teacher_courses(
 
 
 @router.get("/modules")
+@cached(ttl=90, key_prefix="teacher_modules")  # Cache for 90 seconds
 async def get_teacher_modules(
+    request: Request,
     teacher_id: str,
     db: AsyncSession = Depends(get_db_session)
 ):
@@ -242,6 +250,7 @@ async def create_module(
             title=name,
             description=description,
             course_id=course_id,
+            is_published=True,  # Publicar automáticamente para que sea visible por estudiantes
         )
         db.add(new_module)
         
@@ -266,7 +275,9 @@ async def create_module(
 
 
 @router.get("/students")
+@cached(ttl=60, key_prefix="teacher_students")  # Cache for 1 minute
 async def get_available_students(
+    request: Request,
     db: AsyncSession = Depends(get_db_session)
 ):
     """
@@ -681,7 +692,9 @@ async def get_activity_exercises(
 
 
 @router.get("/activities", response_model=List[ActivityListItem])
+@cached(ttl=45, key_prefix="teacher_activities_list")  # Cache for 45 seconds
 async def list_activities(
+    request: Request,
     teacher_id: Optional[str] = None,
     limit: int = 50,
 ):
@@ -730,7 +743,8 @@ async def list_activities(
 
 
 @router.get("/activities/{activity_id}", response_model=ActivityListItem)
-async def get_activity_detail(activity_id: str):
+@cached(ttl=60, key_prefix="teacher_activity_detail")  # Cache for 1 minute
+async def get_activity_detail(request: Request, activity_id: str):
     """Get a single activity by ID for detail view."""
     try:
         from backend.src_v3.infrastructure.persistence.database import (
@@ -2484,6 +2498,57 @@ async def get_module_students(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to get module students: {str(e)}"
+        )
+
+
+@router.get("/modules/{module_id}/available-students")
+async def get_available_students_for_module(
+    module_id: str,
+    db: AsyncSession = Depends(get_db_session)
+):
+    """
+    Get all students (users with 'student' role) that are NOT enrolled in the specified module.
+    
+    Returns list of students available to be added to the module.
+    """
+    try:
+        from sqlalchemy import text
+        
+        query_str = """
+            SELECT 
+                u.id as user_id,
+                u.full_name,
+                u.email,
+                u.username
+            FROM users u
+            WHERE u.roles @> '["student"]'::jsonb
+              AND u.id NOT IN (
+                  SELECT e.user_id 
+                  FROM enrollments e 
+                  WHERE e.module_id = :module_id
+              )
+            ORDER BY u.full_name, u.email
+        """
+        
+        result = await db.execute(text(query_str), {"module_id": module_id})
+        rows = result.fetchall()
+        
+        available_students = []
+        for row in rows:
+            available_students.append({
+                "user_id": row.user_id,
+                "full_name": row.full_name or row.username,
+                "email": row.email,
+                "username": row.username,
+            })
+        
+        return available_students
+        
+    except Exception as e:
+        logger.error(f"Failed to get available students: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to get available students: {str(e)}"
         )
 
 
