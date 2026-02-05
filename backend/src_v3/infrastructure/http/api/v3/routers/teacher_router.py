@@ -692,7 +692,8 @@ async def get_activity_exercises(
 
 
 @router.get("/activities", response_model=List[ActivityListItem])
-@cached(ttl=45, key_prefix="teacher_activities_list")  # Cache for 45 seconds
+# Cache disabled due to dataclass serialization issues with Activity domain objects
+# @cached(ttl=45, key_prefix="teacher_activities_list")
 async def list_activities(
     request: Request,
     teacher_id: Optional[str] = None,
@@ -743,7 +744,8 @@ async def list_activities(
 
 
 @router.get("/activities/{activity_id}", response_model=ActivityListItem)
-@cached(ttl=60, key_prefix="teacher_activity_detail")  # Cache for 1 minute
+# Cache disabled due to dataclass serialization issues
+# @cached(ttl=60, key_prefix="teacher_activity_detail")
 async def get_activity_detail(request: Request, activity_id: str):
     """Get a single activity by ID for detail view."""
     try:
@@ -761,7 +763,8 @@ async def get_activity_detail(request: Request, activity_id: str):
                     detail=f"Activity {activity_id} not found",
                 )
             
-            return ActivityListItem(
+            # Convert dataclass to Pydantic model
+            item = ActivityListItem(
                 activity_id=activity.activity_id,
                 title=activity.title,
                 course_id=activity.course_id,
@@ -770,6 +773,7 @@ async def get_activity_detail(request: Request, activity_id: str):
                 status=activity.status,
                 created_at=None,  # Activity object doesn't have created_at
             )
+            return item
 
     except HTTPException:
         raise

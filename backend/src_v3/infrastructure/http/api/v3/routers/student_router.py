@@ -197,7 +197,8 @@ async def get_teacher_repo(db=Depends(get_db_session)):
 # ==================== ENDPOINTS ====================
 
 @router.get("/activities", response_model=List[ActivityInfo])
-@cached(ttl=45, key_prefix="student_activities")  # Cache for 45 seconds
+# Cache disabled due to dataclass serialization issues with Activity domain objects
+# @cached(ttl=45, key_prefix="student_activities")
 async def list_available_activities(
     request: Request,
     student_id: Optional[str] = None,
@@ -2512,7 +2513,8 @@ async def list_student_courses(
 
 
 @router.get("/gamification", response_model=UserGamificationRead)
-@cached(ttl=30, key_prefix="student_gamification")  # Cache for 30 seconds
+# Cache disabled due to SQLAlchemy model serialization issues
+# @cached(ttl=30, key_prefix="student_gamification")
 async def get_student_gamification(
     request: Request,
     student_id: str,
@@ -2550,7 +2552,9 @@ async def get_student_gamification(
             await db.commit()
             await db.refresh(gamification)
         
-        return UserGamificationRead.model_validate(gamification)
+        # Convert SQLAlchemy model to Pydantic before returning
+        result = UserGamificationRead.model_validate(gamification)
+        return result
         
     except HTTPException:
         raise
